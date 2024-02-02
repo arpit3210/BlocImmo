@@ -1,0 +1,516 @@
+{
+    "properties": {
+        "property_1": [
+            {
+                "identifier": "propertyId1",
+                "highlights": {
+                    "propertyHighlights": {
+                        "expectedIncome": "10.16%",
+                        "rentPerToken": "$5.18 / year",
+                        "rentStartDate": "May 15, 2024",
+                        "tokenPrice": "$50.98",
+                        "totalTokens": 3000
+                    },
+                    "propertyType": "Single Family",
+                    "fullAddress": "1174 Chalmers St, Detroit, MI 48123",
+                    "country": "USA",
+                    "source": "RealT",
+                    "neighborhood": "Riverbend",
+                    "constructionYear": 1913,
+                    "bedroomBath": "3 Beds / 1.5 Baths",
+                    "rentalType": "Long-term",
+                    "isRented": "Fully Rented",
+                    "rentSubsidy": "No"
+                },
+                "financials": {
+                    "grossRentYear": "$22,800.00",
+                    "grossRentMonth": "$1,900.00",
+                    "monthlyCosts": "- $605.00",
+                    "netRentMonth": "$1,295.00",
+                    "netRentYear": "$15,540.00",
+                    "totalInvestment": "$152,940.00",
+                    "expectedIncome": "10.16%"
+                },
+                "details": {
+                    "lotSizeSqft": 3354,
+                    "foundation": "Masonry",
+                    "exteriorWalls": "Brick / Siding",
+                    "roofType": "Asphalt",
+                    "interiorSizeSqft": 1460,
+                    "heating": "Gas / Forced Hot Water",
+                    "buildingClass": "C",
+                    "renovated": "Yes"
+                },
+                "blockchain": {
+                    "identifier": "REALTOKEN-S-1174-CHALMERS-ST-DETROIT-MI",
+                    "totalTokens": 3000,
+                    "gnosisChain": {
+                        "contractAddress": "0x2f4d...1822d1",
+                        "ownerWallet": "0xAB08...450Ab3",
+                        "levinswapPool": "0x1bd1...0bc730"
+                    },
+                    "ethereum": {
+                        "contractAddress": "0x2f4d...1822d1",
+                        "ownerWallet": "0xAB08...450Ab3"
+                    }
+                },
+                "offering": {
+                    "offeringDate": "February 2, 2024",
+                    "issuer": "RealToken International 1174 Chalmers St Inc",
+                    "minInvestmentAmount": "$50.98",
+                    "maxInvestmentAmount": "$152,940.00",
+                    "amountRaised": "$152,940.00",
+                    "offeringPercent": "100.00%"
+                }
+            }
+        ],
+        "property_2": [
+            {
+                "identifier": "propertyId2",
+                "highlights": {
+                    "propertyHighlights": {
+                        "expectedIncome": "10.16%",
+                        "rentPerToken": "$5.18 / year",
+                        "rentStartDate": "May 15, 2024",
+                        "tokenPrice": "$50.98",
+                        "totalTokens": 3000
+                    },
+                    "propertyType": "Single Family",
+                    "fullAddress": "1174 Chalmers St, Detroit, MI 48123",
+                    "country": "USA",
+                    "source": "RealT",
+                    "neighborhood": "Riverbend",
+                    "constructionYear": 1913,
+                    "bedroomBath": "3 Beds / 1.5 Baths",
+                    "rentalType": "Long-term",
+                    "isRented": "Fully Rented",
+                    "rentSubsidy": "No"
+                },
+                "financials": {
+                    "grossRentYear": "$22,800.00",
+                    "grossRentMonth": "$1,900.00",
+                    "monthlyCosts": "- $605.00",
+                    "netRentMonth": "$1,295.00",
+                    "netRentYear": "$15,540.00",
+                    "totalInvestment": "$152,940.00",
+                    "expectedIncome": "10.16%"
+                },
+                "details": {
+                    "lotSizeSqft": 3354,
+                    "foundation": "Masonry",
+                    "exteriorWalls": "Brick / Siding",
+                    "roofType": "Asphalt",
+                    "interiorSizeSqft": 1460,
+                    "heating": "Gas / Forced Hot Water",
+                    "buildingClass": "C",
+                    "renovated": "Yes"
+                },
+                "blockchain": {
+                    "identifier": "REALTOKEN-S-1174-CHALMERS-ST-DETROIT-MI",
+                    "totalTokens": 3000,
+                    "gnosisChain": {
+                        "contractAddress": "0x2f4d...1822d1",
+                        "ownerWallet": "0xAB08...450Ab3",
+                        "levinswapPool": "0x1bd1...0bc730"
+                    },
+                    "ethereum": {
+                        "contractAddress": "0x2f4d...1822d1",
+                        "ownerWallet": "0xAB08...450Ab3"
+                    }
+                },
+                "offering": {
+                    "offeringDate": "February 2, 2024",
+                    "issuer": "RealToken International 1174 Chalmers St Inc",
+                    "minInvestmentAmount": "$50.98",
+                    "maxInvestmentAmount": "$152,940.00",
+                    "amountRaised": "$152,940.00",
+                    "offeringPercent": "100.00%"
+                }
+            }
+        ],
+        "property_3": [
+            {
+                "identifier": "propertyId3",
+                "highlights": {
+                    "propertyHighlights": {
+                        "expectedIncome": "10.16%",
+                        "rentPerToken": "$5.18 / year",
+                        "rentStartDate": "May 15, 2024",
+                        "tokenPrice": "$50.98",
+                        "totalTokens": 3000
+                    },
+                    "propertyType": "Single Family",
+                    "fullAddress": "1174 Chalmers St, Detroit, MI 48123",
+                    "country": "USA",
+                    "source": "RealT",
+                    "neighborhood": "Riverbend",
+                    "constructionYear": 1913,
+                    "bedroomBath": "3 Beds / 1.5 Baths",
+                    "rentalType": "Long-term",
+                    "isRented": "Fully Rented",
+                    "rentSubsidy": "No"
+                },
+                "financials": {
+                    "grossRentYear": "$22,800.00",
+                    "grossRentMonth": "$1,900.00",
+                    "monthlyCosts": "- $605.00",
+                    "netRentMonth": "$1,295.00",
+                    "netRentYear": "$15,540.00",
+                    "totalInvestment": "$152,940.00",
+                    "expectedIncome": "10.16%"
+                },
+                "details": {
+                    "lotSizeSqft": 3354,
+                    "foundation": "Masonry",
+                    "exteriorWalls": "Brick / Siding",
+                    "roofType": "Asphalt",
+                    "interiorSizeSqft": 1460,
+                    "heating": "Gas / Forced Hot Water",
+                    "buildingClass": "C",
+                    "renovated": "Yes"
+                },
+                "blockchain": {
+                    "identifier": "REALTOKEN-S-1174-CHALMERS-ST-DETROIT-MI",
+                    "totalTokens": 3000,
+                    "gnosisChain": {
+                        "contractAddress": "0x2f4d...1822d1",
+                        "ownerWallet": "0xAB08...450Ab3",
+                        "levinswapPool": "0x1bd1...0bc730"
+                    },
+                    "ethereum": {
+                        "contractAddress": "0x2f4d...1822d1",
+                        "ownerWallet": "0xAB08...450Ab3"
+                    }
+                },
+                "offering": {
+                    "offeringDate": "February 2, 2024",
+                    "issuer": "RealToken International 1174 Chalmers St Inc",
+                    "minInvestmentAmount": "$50.98",
+                    "maxInvestmentAmount": "$152,940.00",
+                    "amountRaised": "$152,940.00",
+                    "offeringPercent": "100.00%"
+                }
+            }
+        ],
+        "property_4": [
+            {
+                "identifier": "propertyId4",
+                "highlights": {
+                    "propertyHighlights": {
+                        "expectedIncome": "10.16%",
+                        "rentPerToken": "$5.18 / year",
+                        "rentStartDate": "May 15, 2024",
+                        "tokenPrice": "$50.98",
+                        "totalTokens": 3000
+                    },
+                    "propertyType": "Single Family",
+                    "fullAddress": "1174 Chalmers St, Detroit, MI 48123",
+                    "country": "USA",
+                    "source": "RealT",
+                    "neighborhood": "Riverbend",
+                    "constructionYear": 1913,
+                    "bedroomBath": "3 Beds / 1.5 Baths",
+                    "rentalType": "Long-term",
+                    "isRented": "Fully Rented",
+                    "rentSubsidy": "No"
+                },
+                "financials": {
+                    "grossRentYear": "$22,800.00",
+                    "grossRentMonth": "$1,900.00",
+                    "monthlyCosts": "- $605.00",
+                    "netRentMonth": "$1,295.00",
+                    "netRentYear": "$15,540.00",
+                    "totalInvestment": "$152,940.00",
+                    "expectedIncome": "10.16%"
+                },
+                "details": {
+                    "lotSizeSqft": 3354,
+                    "foundation": "Masonry",
+                    "exteriorWalls": "Brick / Siding",
+                    "roofType": "Asphalt",
+                    "interiorSizeSqft": 1460,
+                    "heating": "Gas / Forced Hot Water",
+                    "buildingClass": "C",
+                    "renovated": "Yes"
+                },
+                "blockchain": {
+                    "identifier": "REALTOKEN-S-1174-CHALMERS-ST-DETROIT-MI",
+                    "totalTokens": 3000,
+                    "gnosisChain": {
+                        "contractAddress": "0x2f4d...1822d1",
+                        "ownerWallet": "0xAB08...450Ab3",
+                        "levinswapPool": "0x1bd1...0bc730"
+                    },
+                    "ethereum": {
+                        "contractAddress": "0x2f4d...1822d1",
+                        "ownerWallet": "0xAB08...450Ab3"
+                    }
+                },
+                "offering": {
+                    "offeringDate": "February 2, 2024",
+                    "issuer": "RealToken International 1174 Chalmers St Inc",
+                    "minInvestmentAmount": "$50.98",
+                    "maxInvestmentAmount": "$152,940.00",
+                    "amountRaised": "$152,940.00",
+                    "offeringPercent": "100.00%"
+                }
+            }
+        ],
+        "property_5": [
+            {
+                "identifier": "propertyId5",
+                "highlights": {
+                    "propertyHighlights": {
+                        "expectedIncome": "10.16%",
+                        "rentPerToken": "$5.18 / year",
+                        "rentStartDate": "May 15, 2024",
+                        "tokenPrice": "$50.98",
+                        "totalTokens": 3000
+                    },
+                    "propertyType": "Single Family",
+                    "fullAddress": "1174 Chalmers St, Detroit, MI 48123",
+                    "country": "USA",
+                    "source": "RealT",
+                    "neighborhood": "Riverbend",
+                    "constructionYear": 1913,
+                    "bedroomBath": "3 Beds / 1.5 Baths",
+                    "rentalType": "Long-term",
+                    "isRented": "Fully Rented",
+                    "rentSubsidy": "No"
+                },
+                "financials": {
+                    "grossRentYear": "$22,800.00",
+                    "grossRentMonth": "$1,900.00",
+                    "monthlyCosts": "- $605.00",
+                    "netRentMonth": "$1,295.00",
+                    "netRentYear": "$15,540.00",
+                    "totalInvestment": "$152,940.00",
+                    "expectedIncome": "10.16%"
+                },
+                "details": {
+                    "lotSizeSqft": 3354,
+                    "foundation": "Masonry",
+                    "exteriorWalls": "Brick / Siding",
+                    "roofType": "Asphalt",
+                    "interiorSizeSqft": 1460,
+                    "heating": "Gas / Forced Hot Water",
+                    "buildingClass": "C",
+                    "renovated": "Yes"
+                },
+                "blockchain": {
+                    "identifier": "REALTOKEN-S-1174-CHALMERS-ST-DETROIT-MI",
+                    "totalTokens": 3000,
+                    "gnosisChain": {
+                        "contractAddress": "0x2f4d...1822d1",
+                        "ownerWallet": "0xAB08...450Ab3",
+                        "levinswapPool": "0x1bd1...0bc730"
+                    },
+                    "ethereum": {
+                        "contractAddress": "0x2f4d...1822d1",
+                        "ownerWallet": "0xAB08...450Ab3"
+                    }
+                },
+                "offering": {
+                    "offeringDate": "February 2, 2024",
+                    "issuer": "RealToken International 1174 Chalmers St Inc",
+                    "minInvestmentAmount": "$50.98",
+                    "maxInvestmentAmount": "$152,940.00",
+                    "amountRaised": "$152,940.00",
+                    "offeringPercent": "100.00%"
+                }
+            }
+        ],
+        "property_6": [
+            {
+                "identifier": "propertyId6",
+                "highlights": {
+                    "propertyHighlights": {
+                        "expectedIncome": "10.16%",
+                        "rentPerToken": "$5.18 / year",
+                        "rentStartDate": "May 15, 2024",
+                        "tokenPrice": "$50.98",
+                        "totalTokens": 3000
+                    },
+                    "propertyType": "Single Family",
+                    "fullAddress": "1174 Chalmers St, Detroit, MI 48123",
+                    "country": "USA",
+                    "source": "RealT",
+                    "neighborhood": "Riverbend",
+                    "constructionYear": 1913,
+                    "bedroomBath": "3 Beds / 1.5 Baths",
+                    "rentalType": "Long-term",
+                    "isRented": "Fully Rented",
+                    "rentSubsidy": "No"
+                },
+                "financials": {
+                    "grossRentYear": "$22,800.00",
+                    "grossRentMonth": "$1,900.00",
+                    "monthlyCosts": "- $605.00",
+                    "netRentMonth": "$1,295.00",
+                    "netRentYear": "$15,540.00",
+                    "totalInvestment": "$152,940.00",
+                    "expectedIncome": "10.16%"
+                },
+                "details": {
+                    "lotSizeSqft": 3354,
+                    "foundation": "Masonry",
+                    "exteriorWalls": "Brick / Siding",
+                    "roofType": "Asphalt",
+                    "interiorSizeSqft": 1460,
+                    "heating": "Gas / Forced Hot Water",
+                    "buildingClass": "C",
+                    "renovated": "Yes"
+                },
+                "blockchain": {
+                    "identifier": "REALTOKEN-S-1174-CHALMERS-ST-DETROIT-MI",
+                    "totalTokens": 3000,
+                    "gnosisChain": {
+                        "contractAddress": "0x2f4d...1822d1",
+                        "ownerWallet": "0xAB08...450Ab3",
+                        "levinswapPool": "0x1bd1...0bc730"
+                    },
+                    "ethereum": {
+                        "contractAddress": "0x2f4d...1822d1",
+                        "ownerWallet": "0xAB08...450Ab3"
+                    }
+                },
+                "offering": {
+                    "offeringDate": "February 2, 2024",
+                    "issuer": "RealToken International 1174 Chalmers St Inc",
+                    "minInvestmentAmount": "$50.98",
+                    "maxInvestmentAmount": "$152,940.00",
+                    "amountRaised": "$152,940.00",
+                    "offeringPercent": "100.00%"
+                }
+            }
+        ],
+        "property_7": [
+            {
+                "identifier": "propertyId7",
+                "highlights": {
+                    "propertyHighlights": {
+                        "expectedIncome": "10.16%",
+                        "rentPerToken": "$5.18 / year",
+                        "rentStartDate": "May 15, 2024",
+                        "tokenPrice": "$50.98",
+                        "totalTokens": 3000
+                    },
+                    "propertyType": "Single Family",
+                    "fullAddress": "1174 Chalmers St, Detroit, MI 48123",
+                    "country": "USA",
+                    "source": "RealT",
+                    "neighborhood": "Riverbend",
+                    "constructionYear": 1913,
+                    "bedroomBath": "3 Beds / 1.5 Baths",
+                    "rentalType": "Long-term",
+                    "isRented": "Fully Rented",
+                    "rentSubsidy": "No"
+                },
+                "financials": {
+                    "grossRentYear": "$22,800.00",
+                    "grossRentMonth": "$1,900.00",
+                    "monthlyCosts": "- $605.00",
+                    "netRentMonth": "$1,295.00",
+                    "netRentYear": "$15,540.00",
+                    "totalInvestment": "$152,940.00",
+                    "expectedIncome": "10.16%"
+                },
+                "details": {
+                    "lotSizeSqft": 3354,
+                    "foundation": "Masonry",
+                    "exteriorWalls": "Brick / Siding",
+                    "roofType": "Asphalt",
+                    "interiorSizeSqft": 1460,
+                    "heating": "Gas / Forced Hot Water",
+                    "buildingClass": "C",
+                    "renovated": "Yes"
+                },
+                "blockchain": {
+                    "identifier": "REALTOKEN-S-1174-CHALMERS-ST-DETROIT-MI",
+                    "totalTokens": 3000,
+                    "gnosisChain": {
+                        "contractAddress": "0x2f4d...1822d1",
+                        "ownerWallet": "0xAB08...450Ab3",
+                        "levinswapPool": "0x1bd1...0bc730"
+                    },
+                    "ethereum": {
+                        "contractAddress": "0x2f4d...1822d1",
+                        "ownerWallet": "0xAB08...450Ab3"
+                    }
+                },
+                "offering": {
+                    "offeringDate": "February 2, 2024",
+                    "issuer": "RealToken International 1174 Chalmers St Inc",
+                    "minInvestmentAmount": "$50.98",
+                    "maxInvestmentAmount": "$152,940.00",
+                    "amountRaised": "$152,940.00",
+                    "offeringPercent": "100.00%"
+                }
+            }
+        ],
+        "property_8": [
+            {
+                "identifier": "propertyId8",
+                "highlights": {
+                    "propertyHighlights": {
+                        "expectedIncome": "10.16%",
+                        "rentPerToken": "$5.18 / year",
+                        "rentStartDate": "May 15, 2024",
+                        "tokenPrice": "$50.98",
+                        "totalTokens": 3000
+                    },
+                    "propertyType": "Single Family",
+                    "fullAddress": "1174 Chalmers St, Detroit, MI 48123",
+                    "country": "USA",
+                    "source": "RealT",
+                    "neighborhood": "Riverbend",
+                    "constructionYear": 1913,
+                    "bedroomBath": "3 Beds / 1.5 Baths",
+                    "rentalType": "Long-term",
+                    "isRented": "Fully Rented",
+                    "rentSubsidy": "No"
+                },
+                "financials": {
+                    "grossRentYear": "$22,800.00",
+                    "grossRentMonth": "$1,900.00",
+                    "monthlyCosts": "- $605.00",
+                    "netRentMonth": "$1,295.00",
+                    "netRentYear": "$15,540.00",
+                    "totalInvestment": "$152,940.00",
+                    "expectedIncome": "10.16%"
+                },
+                "details": {
+                    "lotSizeSqft": 3354,
+                    "foundation": "Masonry",
+                    "exteriorWalls": "Brick / Siding",
+                    "roofType": "Asphalt",
+                    "interiorSizeSqft": 1460,
+                    "heating": "Gas / Forced Hot Water",
+                    "buildingClass": "C",
+                    "renovated": "Yes"
+                },
+                "blockchain": {
+                    "identifier": "REALTOKEN-S-1174-CHALMERS-ST-DETROIT-MI",
+                    "totalTokens": 3000,
+                    "gnosisChain": {
+                        "contractAddress": "0x2f4d...1822d1",
+                        "ownerWallet": "0xAB08...450Ab3",
+                        "levinswapPool": "0x1bd1...0bc730"
+                    },
+                    "ethereum": {
+                        "contractAddress": "0x2f4d...1822d1",
+                        "ownerWallet": "0xAB08...450Ab3"
+                    }
+                },
+                "offering": {
+                    "offeringDate": "February 2, 2024",
+                    "issuer": "RealToken International 1174 Chalmers St Inc",
+                    "minInvestmentAmount": "$50.98",
+                    "maxInvestmentAmount": "$152,940.00",
+                    "amountRaised": "$152,940.00",
+                    "offeringPercent": "100.00%"
+                }
+            }
+        ]
+    }
+}

@@ -1,3 +1,12 @@
+// export default function App() {
+//   return (
+//     <h1 className="text-3xl font-bold underline">
+//       Hello world!
+//     </h1>
+//   )
+// }
+
+
 import { SignOutButton, SignInButton, SignedIn, SignedOut } from "@clerk/clerk-react"
 import IndexPage from "../src/Components/index.js"
  
@@ -9,11 +18,6 @@ function App() {
  
   return (
     <div>
-
-
-
-
-
 
 
       <SignedOut>

@@ -7,6 +7,8 @@ import ContactPage from "./Contact.js";
 import About from "./About";
 import Home from "./Home";
 import Properties from '../Properties/Properties.js';
+import PropertiesList from '../Properties/Properties.js';
+import PropertyDetail from '../Properties/PropertyDetails.js';
 
 
 function IndexPage() {
@@ -22,7 +24,10 @@ function IndexPage() {
                         <Route path="/" exact element={<Home />} />
                         <Route path="/about" element={<About />} />
                         <Route path="/contact" element={<ContactPage />} />
-                        <Route path="/properties" element={<Properties />} />
+                        {/* <Route path="/properties" element={<Properties />} /> */}
+
+                        <Route path="/propertiesList"  element={<PropertiesList/>} />
+                        <Route path="/property/:id"  element={<PropertyDetail/>} />
                     </Routes>
                 </BrowserRouter>
 
