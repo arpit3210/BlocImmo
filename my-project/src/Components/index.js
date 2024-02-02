@@ -4,11 +4,20 @@ import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 
 
 import ContactPage from "./Contact.js";
-import About from "./About";
+// import About from "./About";
 import Home from "./Home";
-import Properties from '../Properties/Properties.js';
+// import Properties from '../Properties/Properties.js';
 import PropertiesList from '../Properties/Properties.js';
 import PropertyDetail from '../Properties/PropertyDetails.js';
+import About from '../LandingPage/About.js';
+
+
+import MarketPlace from '../LandingPage/MarketPlace.js';
+
+import TeamPage from '../LandingPage/TeamPage.js';
+
+
+
 
 
 function IndexPage() {
@@ -25,9 +34,15 @@ function IndexPage() {
                         <Route path="/about" element={<About />} />
                         <Route path="/contact" element={<ContactPage />} />
                         {/* <Route path="/properties" element={<Properties />} /> */}
+                        <Route path="/team" element={<TeamPage />} />
+                        {/* Contact Page Route */}
+                        <Route path="/contact" element={<ContactPage />} />
 
-                        <Route path="/propertiesList"  element={<PropertiesList/>} />
-                        <Route path="/property/:id"  element={<PropertyDetail/>} />
+                        <Route path="/marketplace" element={<MarketPlace />} />
+
+
+                        <Route path="/propertiesList" element={<PropertiesList />} />
+                        <Route path="/property/:propertyId" element={<PropertyDetail />} />
                     </Routes>
                 </BrowserRouter>
 
