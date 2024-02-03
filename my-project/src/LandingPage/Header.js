@@ -22,7 +22,7 @@ const Header = () => {
         <span className="w-20 h-2 mb-12 bg-white"></span>
         <h1 className="text-6xl font-black leading-none uppercase font-bebas-neue sm:text-8xl text-white">
           Real Estate Token Platform
-          <span className="text-5xl sm:text-7xl"> Buy Tokens </span>
+          {/* <span className="text-5xl sm:text-7xl"> Buy Tokens </span> */}
         </h1>
         <p className="text-sm sm:text-base text-white">
           Revolutionizing real estate investment through blockchain technology. Explore the future of property ownership with our secure and transparent token platform.

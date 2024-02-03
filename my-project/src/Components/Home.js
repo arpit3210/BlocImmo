@@ -10,27 +10,27 @@ import Statistics from '../LandingPage/Statistics'
 import CTA from '../LandingPage/CTA'
 
 import Process from '../LandingPage/Process'
-
+import MarketPlace from '../LandingPage/MarketPlace'
 
 
 const Home = () => {
   return (
     <div>
 
-<Navbar></Navbar>
+{/* <Navbar></Navbar>
 
-<Header></Header>
+<Header></Header> */}
 
+<MarketPlace></MarketPlace>
+{/* <FormInput></FormInput>
+<Review></Review>
 
-{/* <FormInput></FormInput> */}
-{/* <Review></Review> */}
+<Statistics></Statistics>
+<CTA></CTA>
 
-{/* <Statistics></Statistics> */}
-{/* <CTA></CTA> */}
+<Process></Process>
 
-{/* <Process></Process> */}
-
-{/* <Footer></Footer> */}
+<Footer></Footer> */}
 
       {/* <h1 className="text-center mt-5">Welcome to our website!</h1> */}
 
