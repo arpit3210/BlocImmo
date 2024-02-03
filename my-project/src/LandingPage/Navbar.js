@@ -1,51 +1,84 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { IoMdClose } from "react-icons/io";
 import { GiHamburgerMenu } from "react-icons/gi";
 
-const Navbar = () => {
+
+const Navbar = ({  }) => {
+
+
+    const [OpenNav, setOpenNav] = useState(false)
+
+
+    const handleOpenNav = () => {
+
+        if (OpenNav) {
+            setOpenNav(false);
+        } else
+            setOpenNav(true);
+
+    }
+
+
+
     return (
-        <nav className="bg-white shadow dark:bg-gray-800">
-            <div className="container px-6 py-4 mx-auto">
-                <div className="lg:flex lg:items-center">
+        <nav className=" bg-white  absolute top-0 z-30 w-[100vw] shadow ">
+            <div className="container   mx-auto">
+                <div className="lg:flex  justify-between  lg:items-center">
                     <div className="flex items-center justify-between">
-                        <a href="#">
-                            <img className="w-auto h-6 sm:h-7" src="https://merakiui.com/images/full-logo.svg" alt="" />
-                        </a>
+                        <div className='text-red-600 font-bold  text-3xl'>  BlocImmo </div>
 
-                        <div className="flex-col justify-center items-center text-3xl lg:hidden">
-                            <button type="button" className="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400" aria-label="toggle menu">
-
-
-
-                            <GiHamburgerMenu />
-
-
-
-                            <IoMdClose />
-
-
-                            </button>
-
-
-
-                        </div>
                     </div>
 
-                    <div className="lg:flex max-md:hidden lg:items-center">
-                    <a href="#" class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">features</a>
-                    <a href="#" class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">downloads</a>
-                    <a href="#" class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">docs</a>
-                    <a href="#" class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">support</a>
-                    <a href="#" class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">blog</a>
-    
 
-                        <div className="relative mt-4 lg:mt-0 lg:mx-4">
-               
-              
-                        </div>
 
-                       
+
+
+
+
+
+                    <div className="lg:flex text-xl max-lg:hidden lg:items-center">
+                        <a href="#" class="mt-2 hover:text-red-600 transition-colors duration-300 transform lg:mt-0 lg:mx-4 ">Properties</a>
+                        <a href="#" class="mt-2 hover:text-red-600 transition-colors duration-300 transform lg:mt-0 lg:mx-4 ">The Exchange</a>
+                        <a href="#" class="mt-2 hover:text-red-600 transition-colors duration-300 transform lg:mt-0 lg:mx-4 ">About Us</a>
+                        <a href="#" class="mt-2 hover:text-red-600 transition-colors duration-300 transform lg:mt-0 lg:mx-4 ">Learn</a>
+                        <a href="#" class="mt-2 hover:text-red-600 transition-colors duration-300 transform lg:mt-0 lg:mx-4 ">Contact Us</a>
                     </div>
+
+
+                    <div className='flex max-lg:flex-col max-lg:hidden justify-center items-center py-5  gap-7'>
+                        <a className=' text-red-700 w-28  border font-bold   border-red-800 py-3 rounded-xl px-9  '>Login</a>
+                        <a className=' text-white bg-red-600 font-bold w-36   border border-red-800 py-3 rounded-xl px-9'>  Register</a>
+                    </div>
+
+
+
+                    <div className="flex justify-end  text-2xl lg:hidden">
+                        {OpenNav ? (
+                            <IoMdClose onClick={handleOpenNav} />
+                        ) : (
+                            <GiHamburgerMenu onClick={handleOpenNav} />
+                        )}
+                    </div>
+
+
+
+
+
+                    {OpenNav &&
+                        <div className=' bg-white px-4 absolute z-30 w-[100vw] h-[100vh] flex flex-col gap-4 py-7'>
+                            {/* Your content goes here */}
+                            <div className='text-xl hover:text-red-700 text-gray-600'>Properties</div>
+                            <div className='text-xl hover:text-red-700 text-gray-600'>The Exchange</div>
+                            <div className='text-xl hover:text-red-700 text-gray-600'>About Us</div>
+                            <div className='text-xl hover:text-red-700 text-gray-600'>Learn</div>
+                            <div className='text-xl hover:text-red-700 text-gray-600'>Contact Us</div>
+
+                        </div>
+                    }
+
+
+
+
                 </div>
             </div>
         </nav>

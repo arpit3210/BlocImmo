@@ -22,15 +22,15 @@ const Home = () => {
 <Header></Header>
 
 
-<FormInput></FormInput>
-<Review></Review>
+{/* <FormInput></FormInput> */}
+{/* <Review></Review> */}
 
-<Statistics></Statistics>
-<CTA></CTA>
+{/* <Statistics></Statistics> */}
+{/* <CTA></CTA> */}
 
-<Process></Process>
+{/* <Process></Process> */}
 
-<Footer></Footer>
+{/* <Footer></Footer> */}
 
       {/* <h1 className="text-center mt-5">Welcome to our website!</h1> */}
 

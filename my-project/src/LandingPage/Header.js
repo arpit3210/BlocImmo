@@ -1,38 +1,43 @@
-import React from 'react'
+import React from 'react';
+import { Buildings } from '../Assets/Videos';
 
 const Header = () => {
   return (
-  
-<div className="relative z-20 flex items-center overflow-hidden bg-white dark:bg-gray-800">
-    <div className="container relative flex px-6 py-16 mx-auto">
-        <div className="relative z-20 flex flex-col sm:w-2/3 lg:w-2/5">
-            <span className="w-20 h-2 mb-12 bg-gray-800 dark:bg-white">
-            </span>
-            <h1 className="flex flex-col text-6xl font-black leading-none text-gray-800 uppercase font-bebas-neue sm:text-8xl dark:text-white">
-                Be on
-                <span className="text-5xl sm:text-7xl">
-                    Time
-                </span>
-            </h1>
-            <p className="text-sm text-gray-700 sm:text-base dark:text-white">
-                Dimension of reality that makes change possible and understandable. An indefinite and homogeneous environment in which natural events and human existence take place.
-            </p>
-            <div className="flex mt-8">
-                <a href="#" className="px-4 py-2 mr-4 text-white uppercase bg-blue-500 border-2 border-transparent rounded-lg text-md hover:bg-blue-400">
-                    Get started
-                </a>
-                <a href="#" className="px-4 py-2 text-blue-500 uppercase bg-transparent border-2 border-blue-500 rounded-lg dark:text-white hover:bg-blue-500 hover:text-white text-md">
-                    Read more
-                </a>
-            </div>
+    <div className="relative z-20 flex items-center justify-center bg-cover bg-center h-screen overflow-hidden">
+      {/* Video Background */}
+      <video
+        className="absolute top-0 left-0 object-cover w-full h-full "
+        autoPlay
+        loop
+        muted
+      >
+        <source src={Buildings} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      {/* Overlay */}
+      <div className="absolute top-0 left-0 w-full h-full bg-black opacity-10"></div>
+
+      <div className="container relative flex flex-col items-center px-6 py-16 mx-auto text-center">
+        <span className="w-20 h-2 mb-12 bg-white"></span>
+        <h1 className="text-6xl font-black leading-none uppercase font-bebas-neue sm:text-8xl text-white">
+          Real Estate Token Platform
+          <span className="text-5xl sm:text-7xl"> Buy Tokens </span>
+        </h1>
+        <p className="text-sm sm:text-base text-white">
+          Revolutionizing real estate investment through blockchain technology. Explore the future of property ownership with our secure and transparent token platform.
+        </p>
+        <div className="flex mt-8">
+          <a href="#" className="px-4 py-2 mr-4 text-white uppercase bg-red-500 border-2 border-transparent rounded-lg text-md hover:bg-red-400">
+            Get started
+          </a>
+          <a href="#" className="px-4 py-2 uppercase bg-transparent border-2 border-red-500 rounded-lg text-white hover:bg-red-500 hover:text-white text-md">
+            Read more
+          </a>
         </div>
-        <div className="relative hidden sm:block sm:w-1/3 lg:w-3/5">
-            <img src="/images/object/10.png" className="max-w-xs m-auto md:max-w-sm"/>
-        </div>
+      </div>
     </div>
-</div>
+  );
+};
 
-  )
-}
-
-export default Header
+export default Header;
