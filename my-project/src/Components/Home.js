@@ -11,17 +11,41 @@ import CTA from '../LandingPage/CTA'
 
 import Process from '../LandingPage/Process'
 import MarketPlace from '../LandingPage/MarketPlace'
+import WhyTokenization from '../LandingPage/WhyTokenization'
+import Partners from '../LandingPage/Partners'
+
+
+
+import EasyProcess from '../LandingPage/EasyProcess'
+import WeAccept from '../LandingPage/WeAccept'
+import SubmitProperty from '../LandingPage/SubmitProperty.js'
+
 
 
 const Home = () => {
   return (
-    <div>
+    <div className='  '>
 
-{/* <Navbar></Navbar>
+<Navbar></Navbar>
 
-<Header></Header> */}
+<Header></Header>
 
 <MarketPlace></MarketPlace>
+
+<WhyTokenization></WhyTokenization>
+
+
+<Partners></Partners>
+
+
+<EasyProcess></EasyProcess>
+
+
+
+<WeAccept></WeAccept>
+
+<SubmitProperty></SubmitProperty>
+
 {/* <FormInput></FormInput>
 <Review></Review>
 
