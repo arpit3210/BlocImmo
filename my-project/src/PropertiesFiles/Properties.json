@@ -12,6 +12,14 @@
             "rentalType": "Short-term",
             "isRented": "Available",
             "rentSubsidy": "Yes",
+            "PropertyImages": {
+               "PropertyImage1" : "https://images.unsplash.com/photo-1523217582562-09d0def993a6?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+               "PropertyImage2" : "https://images.unsplash.com/photo-1659259540123-72eb0eb77357?q=80&w=1364&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+               "PropertyImage3" : "https://unsplash.com/photos/a-building-with-a-pool-NFU0dYVa43A",
+               "PropertyImage4" : "https://unsplash.com/photos/a-building-with-a-pool-3r9HlCYTtLU",
+               "PropertyImage5" : "https://images.unsplash.com/photo-1660361338517-8c8fbb3ac264?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+
+            },
             "highlights": {
                 "expectedIncome": "8.50%",
                 "rentPerToken": "$7.50 / month",
@@ -72,6 +80,14 @@
             "rentalType": "Long-term",
             "isRented": "Fully Rented",
             "rentSubsidy": "No",
+            "PropertyImages": {
+                "PropertyImage1" : "https://plus.unsplash.com/premium_photo-1661883964999-c1bcb57a7357?q=80&w=1428&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "PropertyImage2" : "https://plus.unsplash.com/premium_photo-1661876449499-26de7959878f?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "PropertyImage3" : "https://plus.unsplash.com/premium_photo-1683129807314-95150b5c3fb1?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "PropertyImage4" : "https://plus.unsplash.com/premium_photo-1661915661139-5b6a4e4a6fcc?q=80&w=1567&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "PropertyImage5" : "https://plus.unsplash.com/premium_photo-1683129807206-8a648874655e?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+ 
+             },
             "highlights": {
                 "expectedIncome": "9.75%",
                 "rentPerToken": "$8.50 / month",
@@ -132,6 +148,14 @@
             "rentalType": "Short-term",
             "isRented": "Available",
             "rentSubsidy": "Yes",
+            "PropertyImages": {
+                "PropertyImage1" : "https://images.unsplash.com/photo-1532119663789-58252470755c?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "PropertyImage2" : "https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "PropertyImage3" : "https://images.unsplash.com/photo-1592247350271-c5efb34dd967?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "PropertyImage4" : "https://images.unsplash.com/photo-1532119663789-58252470755c?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "PropertyImage5" : "https://images.unsplash.com/photo-1616486701797-0f33f61038ec?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTN8UzA2RzMwTS1QaGN8fGVufDB8fHx8fA%3D%3D"
+ 
+             },
             "highlights": {
                 "expectedIncome": "7.25%",
                 "rentPerToken": "$6.00 / month",
@@ -192,6 +216,14 @@
             "rentalType": "Long-term",
             "isRented": "Fully Rented",
             "rentSubsidy": "No",
+            "PropertyImages": {
+                "PropertyImage1" : "https://images.unsplash.com/photo-1584738766473-61c083514bf4?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "PropertyImage2" : "https://images.unsplash.com/photo-1586982599726-11708daaceca?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "PropertyImage3" : "https://images.unsplash.com/photo-1584738766473-61c083514bf4?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "PropertyImage4" : "https://images.unsplash.com/photo-1588012886079-baef0ac45fbd?q=80&w=1467&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "PropertyImage5" : "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+ 
+             },
             "highlights": {
                 "expectedIncome": "8.75%",
                 "rentPerToken": "$9.00 / month",

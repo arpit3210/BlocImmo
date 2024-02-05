@@ -16,7 +16,7 @@ const PropertyDetails = () => {
     return <div>Property not found</div>;
   }
 
-  const { highlights, financials, details, blockchain, offering } = property;
+  const { highlights, financials, details, blockchain, offering, PropertyImages } = property;
 
 
   // const { highlights, offering } = property;
@@ -79,7 +79,7 @@ const PropertyDetails = () => {
       <div className="flex flex-col md:flex-row  bg-gray-100 p-8 shadow-lg rounded-lg">
         <div className="md:w-1/2 mb-4 md:mb-0">
           <img
-            src="your_image_url_here"
+            src={PropertyImages.PropertyImage1}
             alt="Property"
             className="w-full h-full object-cover rounded-lg"
           />
