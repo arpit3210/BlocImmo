@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import propertiesData from '../PropertiesFiles/Properties.json';
 import Navbar from '../LandingPage/Navbar';
 import Footer from '../LandingPage/Footer';
+import { RedirectToSignIn, SignedIn, SignedOut } from '@clerk/clerk-react';
 
 const PropertyDetails = () => {
   const { propertyId } = useParams();
@@ -55,7 +56,21 @@ const PropertyDetails = () => {
   };
 
   return (
-    <div>
+
+<>
+
+
+
+<SignedOut>
+
+<RedirectToSignIn />
+
+</SignedOut>
+
+
+<SignedIn>
+
+<div  >
 
 <div className='pb-20'><Navbar></Navbar></div>
 
@@ -176,6 +191,14 @@ const PropertyDetails = () => {
 
       <Footer></Footer>
     </div>
+
+
+</SignedIn>
+
+</>
+
+
+
   );
 };
 

@@ -21,6 +21,7 @@ import UserProfiles from '../LandingPage/UserProfiles.js';
 
 
 
+
 function IndexPage() {
     return (
         <div>
@@ -44,7 +45,10 @@ function IndexPage() {
 
                         <Route path="/propertiesList" element={<PropertiesList />} />
                         <Route path="/property/:propertyId" element={<PropertyDetail />} />
-                    </Routes>
+                     
+                  
+                  
+                   </Routes>
                 </BrowserRouter>
 
                 <ul>
