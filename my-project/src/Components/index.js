@@ -15,6 +15,7 @@ import About from '../LandingPage/About.js';
 import MarketPlace from '../LandingPage/MarketPlace.js';
 
 import TeamPage from '../LandingPage/TeamPage.js';
+import UserProfiles from '../LandingPage/UserProfiles.js';
 
 
 
@@ -37,7 +38,7 @@ function IndexPage() {
                         <Route path="/team" element={<TeamPage />} />
                         {/* Contact Page Route */}
                      
-
+                        <Route path="/userprofile" element={<UserProfiles />} />
                         <Route path="/marketplace" element={<MarketPlace />} />
 
 

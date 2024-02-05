@@ -26,7 +26,7 @@ const WhyTokenization = () => {
 return (
    <div className="min-h-screen flex justify-center items-center ">
 
-<div className="flex max-lg:flex-col  px-10 max-md:px-2  bg-white">
+<div className="flex max-lg:flex-col lg:max-w-screen-xl w-[100vw]  px-5 max-md:px-2  bg-white">
         {/* Left Side (Picture) */}
         <div className="lg:w-1/2">
             <img
@@ -37,7 +37,7 @@ return (
         </div>
 
         {/* Right Side (Content) */}
-        <div className="lg:w-1/2 lg:px-28">
+        <div className="lg:w-1/2 lg:px-20">
             <h1 className="lg:text-5xl text-3xl max-lg:my-7 text-gray-500 mb-4">Why Tokenized  <br /> Commercial Real Estate?</h1>
             <hr className="border-b-2 border-red-500 mb-4" />
             <p className="my-9 text-xl text-gray-400">

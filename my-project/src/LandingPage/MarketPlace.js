@@ -20,6 +20,7 @@ const MarketPlace = () => {
                 <h1 className='text-4xl text-blue-800 text-center font-bold'> Our Marketplace</h1>
                 <h2 className='text-blue-800 text-center text-xl'>Explore the best properties in the world</h2>
 
+                <div className=''>   </div>
             </div>
           
                 <div className=' lg:max-w-screen-xl w-[100vw] px-10 py-10 '>

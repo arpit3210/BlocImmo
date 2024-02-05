@@ -21,8 +21,15 @@ import WeAccept from '../LandingPage/WeAccept'
 import SubmitProperty from '../LandingPage/SubmitProperty.js'
 import InvestorWeServe from '../LandingPage/InvestorWeServe.js'
 
+// import { useLocomotiveScroll } from 'react-locomotive-scroll'
+
+
 
 const Home = () => {
+
+  // const { scroll } = useLocomotiveScroll()
+
+
   return (
     <div className='  '>
 
@@ -35,7 +42,7 @@ const Home = () => {
 <MarketPlace></MarketPlace>
 
 
-<div id='WhyTokenization'>
+<div id='WhyTokenization'  >
 <WhyTokenization></WhyTokenization>
 </div>
 

@@ -3,6 +3,8 @@
 import React,{ useState } from 'react';
 import { useParams } from 'react-router-dom';
 import propertiesData from '../PropertiesFiles/Properties.json';
+import Navbar from '../LandingPage/Navbar';
+import Footer from '../LandingPage/Footer';
 
 const PropertyDetails = () => {
   const { propertyId } = useParams();
@@ -54,9 +56,12 @@ const PropertyDetails = () => {
 
   return (
     <div>
+
+<div className='pb-20'><Navbar></Navbar></div>
+
       <h2 className="text-2xl font-bold mb-4">Property Details</h2>
 
-      <div className="flex flex-col md:flex-row bg-gray-100 p-8 shadow-lg rounded-lg">
+      <div className="flex flex-col md:flex-row  bg-gray-100 p-8 shadow-lg rounded-lg">
         <div className="md:w-1/2 mb-4 md:mb-0">
           <img
             src="your_image_url_here"
@@ -167,6 +172,9 @@ const PropertyDetails = () => {
 
         </div>
       </div>
+
+
+      <Footer></Footer>
     </div>
   );
 };
