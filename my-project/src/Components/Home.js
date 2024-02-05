@@ -19,12 +19,14 @@ import Partners from '../LandingPage/Partners'
 import EasyProcess from '../LandingPage/EasyProcess'
 import WeAccept from '../LandingPage/WeAccept'
 import SubmitProperty from '../LandingPage/SubmitProperty.js'
-
+import InvestorWeServe from '../LandingPage/InvestorWeServe.js'
 
 
 const Home = () => {
   return (
     <div className='  '>
+
+
 
 <Navbar></Navbar>
 
@@ -32,29 +34,33 @@ const Home = () => {
 
 <MarketPlace></MarketPlace>
 
-<WhyTokenization></WhyTokenization>
 
+<div id='WhyTokenization'>
+<WhyTokenization></WhyTokenization>
+</div>
 
 <Partners></Partners>
 
-
 <EasyProcess></EasyProcess>
-
-
 
 <WeAccept></WeAccept>
 
 <SubmitProperty></SubmitProperty>
 
+ <InvestorWeServe/> 
+
+<CTA></CTA>
+
+
+<Footer></Footer>
+
 {/* <FormInput></FormInput>
 <Review></Review>
 
-<Statistics></Statistics>
-<CTA></CTA>
+<Statistics></Statistics> */}
 
-<Process></Process>
+{/* <Process></Process> */}
 
-<Footer></Footer> */}
 
       {/* <h1 className="text-center mt-5">Welcome to our website!</h1> */}
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Buildings } from '../Assets/Videos';
 
+
 const Header = () => {
   return (
     <div className="relative z-20 flex items-center justify-center bg-cover bg-center h-screen overflow-hidden">
@@ -28,10 +29,13 @@ const Header = () => {
           Revolutionizing real estate investment through blockchain technology. Explore the future of property ownership with our secure and transparent token platform.
         </p>
         <div className="flex mt-8">
-          <a href="#" className="px-4 py-2 mr-4 text-white uppercase bg-red-500 border-2 border-transparent rounded-lg text-md hover:bg-red-400">
+       {/* <Link to="/PropertiesList"> */}
+       <a href="/PropertiesList" className="px-4 py-2 mr-4 text-white uppercase bg-red-500 border-2 border-transparent rounded-lg text-md hover:bg-red-400">
             Get started
           </a>
-          <a href="#" className="px-4 py-2 uppercase bg-transparent border-2 border-red-500 rounded-lg text-white hover:bg-red-500 hover:text-white text-md">
+       {/* </Link> */}
+        
+          <a href="#WhyTokenization" className="px-4 py-2 uppercase bg-transparent border-2 border-red-500 rounded-lg text-white hover:bg-red-500 hover:text-white text-md">
             Read more
           </a>
         </div>

@@ -51,7 +51,7 @@ export default EasyProcess
 
 const EasyProcessCards = ({imgURL, Title,  Description}) => {
     return (
-        <div>
+        <div className=''>
 
 
             <div className='flex flex-col w-72 m-4 justify-center items-center '>
@@ -72,7 +72,7 @@ const EasyProcessCards = ({imgURL, Title,  Description}) => {
 
 const GetStartedButton = () => {
     return (
-        <div>
+        <div className='py-8'>
 
             <div className='flex justify-center items-center'>
                 <button className='hover:bg-red-700 transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300 hover:text-white  border border-red-600 text-red-600 py-4 px-14 text-2xl rounded-xl '> Get Started Now </button>

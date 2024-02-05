@@ -36,7 +36,7 @@ function IndexPage() {
                         {/* <Route path="/properties" element={<Properties />} /> */}
                         <Route path="/team" element={<TeamPage />} />
                         {/* Contact Page Route */}
-                        <Route path="/contact" element={<ContactPage />} />
+                     
 
                         <Route path="/marketplace" element={<MarketPlace />} />
 
