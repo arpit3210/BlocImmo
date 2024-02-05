@@ -9,18 +9,32 @@ import { RedirectToSignIn, SignedIn, SignedOut } from '@clerk/clerk-react';
 
 const PropertyDetails = () => {
   const { propertyId } = useParams();
+  
   const property = propertiesData.properties.find((prop) => prop.id === propertyId);
   const [numTokens, setNumTokens] = useState(0);
+  const { highlights, financials, details, blockchain, offering, PropertyImages } = property;
+
+  const [propertyImg, setpropertyImg] = useState(PropertyImages.PropertyImage1)
+
+  const [selectedImage, setSelectedImage] = useState(PropertyImages.PropertyImage1);
 
   if (!property) {
     return <div>Property not found</div>;
   }
 
-  const { highlights, financials, details, blockchain, offering, PropertyImages } = property;
 
 
   // const { highlights, offering } = property;
 
+
+
+
+
+
+  const handlechangeImage = (param) => {
+    setpropertyImg(param);
+    setSelectedImage(param);
+  };
 
   const handleTokenChange = (event) => {
     const inputTokens = parseInt(event.target.value, 10);
@@ -77,13 +91,38 @@ const PropertyDetails = () => {
       <h2 className="text-2xl font-bold mb-4">Property Details</h2>
 
       <div className="flex flex-col md:flex-row  bg-gray-100 p-8 shadow-lg rounded-lg">
-        <div className="md:w-1/2 mb-4 md:mb-0">
-          <img
-            src={PropertyImages.PropertyImage1}
-            alt="Property"
-            className="w-full h-full object-cover rounded-lg"
-          />
+      <div className="md:w-1/2 mb-4 md:mb-0">
+        <img
+          src={propertyImg}
+          alt="Property"
+          className="object-cover w-full aspect-w-1 aspect-h-1 lg:max-w-[550px] lg:max-h-[550px]  rounded-lg"
+        />
+
+
+        <div className='flex flex-wrap-reverse justify-start gap-4 items-center p-3'>
+          {[
+            PropertyImages.PropertyImage1,
+            PropertyImages.PropertyImage2,
+            PropertyImages.PropertyImage3,
+            PropertyImages.PropertyImage4,
+            PropertyImages.PropertyImage5
+          ].map((imageSrc, index) => (
+            <div
+              key={index}
+              onClick={() => handlechangeImage(imageSrc)}
+              className='lg:w-20 cursor-pointer w-14 lg:h-20 h-14'
+              style={{ flexShrink: 0 }}
+            >
+              <img
+                src={imageSrc}
+                alt={`PropertyImage${index + 1}`}
+                className={`w-full h-full object-cover rounded-lg transition-opacity duration-300 ${selectedImage === imageSrc ? 'opacity-100' : 'opacity-50'
+                  }`}
+              />
+            </div>
+          ))}
         </div>
+      </div>
 
         <div className="md:w-1/2 md:ml-4">
           <div className="mb-4">

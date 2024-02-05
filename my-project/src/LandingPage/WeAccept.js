@@ -10,7 +10,7 @@ const WeAccept = () => {
 
 <h1 className='lg:text-7xl text-4xl text-gray-300'>We Accept Only:</h1>
 
-<SignInButton />
+{/* <SignInButton /> */}
 
 
 <img className=' grayscale' src={Ethereumtokenbanner} width={300} alt="Ethereumtokenbanner" />
