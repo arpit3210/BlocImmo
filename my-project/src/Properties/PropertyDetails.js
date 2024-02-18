@@ -17,10 +17,10 @@ const PropertyDetails = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
 
   const { isSignedIn, user } = useUser();
-//   const senderUserId = user ? user.id : null;
-// console.log("this is sender user id", senderUserId);
+  //   const senderUserId = user ? user.id : null;
+  // console.log("this is sender user id", senderUserId);
 
-console.log(user);
+  console.log(user);
 
   const UserEmailAddress = user?.primaryEmailAddress.emailAddress;
   const UserFirstName = user?.firstName;
@@ -29,38 +29,38 @@ console.log(user);
   const UserID = user?.primaryEmailAddress.id;
 
   console.log(UserEmailAddress);
-console.log(UserID);
+  console.log(UserID);
   useEffect(() => {
-      if (!user || !user.primaryEmailAddress) {
-        console.log("User or primaryEmailAddress is not defined.");
-        return;
-      }
-      
-      // const receiverEmail = user.primaryEmailAddress.emailAddress;
-      const UserEmailAddress = user?.primaryEmailAddress.emailAddress;
-      console.log("User Email Address:", UserEmailAddress);
-    }, []);
-  
+    if (!user || !user.primaryEmailAddress) {
+      console.log("User or primaryEmailAddress is not defined.");
+      return;
+    }
 
- 
-
-    useEffect(() => {
-      const interval = setInterval(() => {
-        setCurrentTime(new Date());
-      }, 1000); // Update every second
-  
-      return () => clearInterval(interval); // Cleanup interval on component unmount
-    }, []);
+    // const receiverEmail = user.primaryEmailAddress.emailAddress;
+    const UserEmailAddress = user?.primaryEmailAddress.emailAddress;
+    console.log("User Email Address:", UserEmailAddress);
+  }, []);
 
 
 
-  const { account,   initWeb3, handleBuyToken, numTokens, setNumTokens } = useProperty();
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000); // Update every second
+
+    return () => clearInterval(interval); // Cleanup interval on component unmount
+  }, []);
+
+
+
+  const { account, initWeb3, handleBuyToken, numTokens, setNumTokens, AddDataToFirebase } = useProperty();
 
   const property = propertiesData.properties.find((prop) => prop.id === propertyId);
 
-  const { highlights, financials, id, details, blockchain, offering, PropertyImages, type, address,country, source,  neighborhood, constructionYear, bedroomBath, rentalType, isRented, rentSubsidy } = property;
+  const { highlights, financials, id, details, blockchain, offering, PropertyImages, type, address, country, source, neighborhood, constructionYear, bedroomBath, rentalType, isRented, rentSubsidy } = property;
 
-// console.log(id);
+  // console.log(id);
 
   const [propertyImg, setpropertyImg] = useState(PropertyImages.PropertyImage1)
 
@@ -75,7 +75,7 @@ console.log(UserID);
 
 
   const NumberOfToken = numTokens;
-console.log( highlights);
+  console.log(highlights);
 
   const PropertyData = {
     Unique_Identifier_Property: id,
@@ -86,26 +86,26 @@ console.log( highlights);
     TimeOfTransaction: currentTime,
     YearOfConstruction: constructionYear,
     PropertyType: property.type,
-PropertyCountryLocation: property.country,
-PropertySource: property.source,
+    PropertyCountryLocation: property.country,
+    PropertySource: property.source,
     Number_of_Token: NumberOfToken,
-   Email: UserEmailAddress,
+    Email: UserEmailAddress,
     Full_Name: UserFullName,
     First_Name: UserFirstName,
     Last_Name: UserLastName,
     WalletAddress: account,
     PricePerToken: highlights.tokenPrice,
     TotalNumberOfTokens: blockchain.totalTokens,
-    Highlights: highlights ,
-    Financials:financials ,
+    Highlights: highlights,
+    Financials: financials,
     Details: details,
-    BlockChain:blockchain ,
-    Offering:  offering,
-  propertyImages: PropertyImages,
+    BlockChain: blockchain,
+    Offering: offering,
+    propertyImages: PropertyImages,
   }
 
 
-  console.log(PropertyData );
+  console.log(PropertyData);
 
   // const { highlights, offering } = property;
 
@@ -119,7 +119,7 @@ PropertySource: property.source,
       const userPropertyRef = collection(db, `users/${senderUserId}/purchased_property_history`);
       // Add a new document to the gifts collection
       console.log(PropertyData);
-      const PropertyDocRef = await addDoc(userPropertyRef, {...PropertyData, TransactionId});;
+      const PropertyDocRef = await addDoc(userPropertyRef, { ...PropertyData, TransactionId });;
       console.log("Property added with ID:", PropertyDocRef.id);
     } catch (error) {
       console.error("Error adding Property:", error);
@@ -127,11 +127,10 @@ PropertySource: property.source,
   };
 
 
-  const  handleSubmit = ()=>{
-
+  const handleAddToFirebase = () => {
+    // Call the AddDataToFirebase function as needed
     AddToFirebaseTransaction(senderUserId, PropertyData);
-
-  }
+  };
 
   const handlechangeImage = (param) => {
     setpropertyImg(param);
@@ -331,8 +330,8 @@ PropertySource: property.source,
                   Buy Tokens
                 </button>
 
-                <button onClick={ handleSubmit} className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">
-             Add To Firebase
+                <button onClick={handleAddToFirebase} className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">
+                  Add To Firebase
                 </button>
 
               </div>
