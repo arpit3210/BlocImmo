@@ -1,5 +1,6 @@
 import React from 'react';
 import { Buildings } from '../Assets/Videos';
+import { Link } from 'react-router-dom';
 
 
 const Header = () => {
@@ -29,15 +30,17 @@ const Header = () => {
           Revolutionizing real estate investment through blockchain technology. Explore the future of property ownership with our secure and transparent token platform.
         </p>
         <div className="flex mt-8">
-       {/* <Link to="/PropertiesList"> */}
-       <a href="/PropertiesList" className="px-4 py-2 mr-4 text-white uppercase bg-red-500 border-2 border-transparent rounded-lg text-md hover:bg-red-400">
-            Get started
-          </a>
-       {/* </Link> */}
-        
-          <a href="#WhyTokenization" className="px-4 py-2 uppercase bg-transparent border-2 border-red-500 rounded-lg text-white hover:bg-red-500 hover:text-white text-md">
+          <Link to="/PropertiesList">
+            <a href="/PropertiesList" className="px-4 py-2 mr-4 text-white uppercase bg-red-500 border-2 border-transparent rounded-lg text-md hover:bg-red-400">
+              Get started
+            </a>
+          </Link>
+
+       <div>
+       <a href="#WhyTokenization" className="px-4 py-2 uppercase bg-transparent border-2 border-red-500 rounded-lg text-white hover:bg-red-500 hover:text-white text-md">
             Read more
           </a>
+       </div>
         </div>
       </div>
     </div>

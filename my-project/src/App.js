@@ -1,23 +1,15 @@
-// export default function App() {
-//   return (
-//     <h1 className="text-3xl font-bold underline">
-//       Hello world!
-//     </h1>
-//   )
-// }
+import {  useEffect } from "react"
 
-import { useRef, useEffect } from "react"
-import { SignOutButton, SignInButton, SignedIn, SignedOut } from "@clerk/clerk-react"
 import IndexPage from "../src/Components/index.js"
 //  import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 
 import "./index.css"
-import { getAuth, signInWithCustomToken } from "firebase/auth";
+import { getAuth} from "firebase/auth";
 import { useAuth } from "@clerk/clerk-react";
 
-import {getDatabase, ref, set} from "firebase/database"
+import {getDatabase} from "firebase/database"
 import { app } from "./firebase.js"
-
+import { PropertyProvider } from "./Contexts/PropertyContext.js";
 
 function App() {
 
@@ -81,8 +73,11 @@ function App() {
 </LocomotiveScrollProvider> */}
 
 
+<PropertyProvider>
 
 <IndexPage/>
+
+</PropertyProvider>
 
      
         {/* <p>This content is public. Only signed out users can see the SignInButton above this text.</p> */}

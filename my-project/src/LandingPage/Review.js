@@ -15,7 +15,7 @@ const Review = () => {
             </span>
         </p>
         <div className="flex items-center mt-4">
-            <a href="#" className="relative block">
+            <a href="/" className="relative block">
                 <img alt="profil" src="/images/person/1.jpg" className="mx-auto object-cover rounded-full h-10 w-10 "/>
             </a>
             <div className="flex flex-col justify-between ml-2">
@@ -24,7 +24,7 @@ const Review = () => {
                 </span>
                 <span className="flex items-center text-xs dark:text-gray-400">
                     User of Tail-Kit
-                    <img src="/icons/rocket.svg" className="w-4 h-4 ml-2"/>
+                    <img alt='something' src="/icons/rocket.svg" className="w-4 h-4 ml-2"/>
                 </span>
             </div>
         </div>
@@ -40,7 +40,7 @@ const Review = () => {
             </span>
         </p>
         <div className="flex items-center mt-4">
-            <a href="#" className="relative block">
+            <a href="/" className="relative block">
                 <img alt="profil" src="/images/person/1.jpg" className="mx-auto object-cover rounded-full h-10 w-10 "/>
             </a>
             <div className="flex flex-col justify-between ml-2">
@@ -49,7 +49,7 @@ const Review = () => {
                 </span>
                 <span className="flex items-center text-xs dark:text-gray-400">
                     User of Tail-Kit
-                    <img src="/icons/rocket.svg" className="w-4 h-4 ml-2"/>
+                    <img alt='something' src="/icons/rocket.svg" className="w-4 h-4 ml-2"/>
                 </span>
             </div>
         </div>
@@ -65,7 +65,7 @@ const Review = () => {
             </span>
         </p>
         <div className="flex items-center mt-4">
-            <a href="#" className="relative block">
+            <a href="/" className="relative block">
                 <img alt="profil" src="/images/person/1.jpg" className="mx-auto object-cover rounded-full h-10 w-10 "/>
             </a>
             <div className="flex flex-col justify-between ml-2">
@@ -74,7 +74,7 @@ const Review = () => {
                 </span>
                 <span className="flex items-center text-xs dark:text-gray-400">
                     User of Tail-Kit
-                    <img src="/icons/rocket.svg" className="w-4 h-4 ml-2"/>
+                    <img src="/icons/rocket.svg" alt='something' className="w-4 h-4 ml-2"/>
                 </span>
             </div>
         </div>

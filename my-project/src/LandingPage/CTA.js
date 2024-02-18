@@ -25,7 +25,7 @@ const CTA = () => {
             </div>
         </div>
     </div>
-    <img src={Connect} className="absolute top-0 right-0 hidden h-full max-w-1/2 lg:block"/>
+    <img src={Connect} alt='metamask' className="absolute top-0 right-0 hidden h-full max-w-1/2 lg:block"/>
 </div>
 
 </div>

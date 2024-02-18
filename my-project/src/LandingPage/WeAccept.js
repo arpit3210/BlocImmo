@@ -1,6 +1,6 @@
 import React from 'react'
 import { Ethereumtokenbanner } from '../Assets/PartnersLogos'
-import { SignInButton } from '@clerk/clerk-react'
+// import { SignInButton } from '@clerk/clerk-react'
 
 const WeAccept = () => {
   return (
@@ -15,7 +15,7 @@ const WeAccept = () => {
 
 <img className=' grayscale' src={Ethereumtokenbanner} width={300} alt="Ethereumtokenbanner" />
 
-<h1 className='text-5xl text-white'></h1>
+{/* <h1 className='text-5xl text-white'></h1> */}
     </div>
 </div>
   )

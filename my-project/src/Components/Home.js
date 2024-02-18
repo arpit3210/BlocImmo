@@ -1,15 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+
 import Navbar from '../LandingPage/Navbar'
 import Footer from '../LandingPage/Footer'
 import Header from '../LandingPage/Header'
-import FormInput from '../LandingPage/FormInput'
 
-import Review from '../LandingPage/Review'
-import Statistics from '../LandingPage/Statistics'
 import CTA from '../LandingPage/CTA'
 
-import Process from '../LandingPage/Process'
 import MarketPlace from '../LandingPage/MarketPlace'
 import WhyTokenization from '../LandingPage/WhyTokenization'
 import Partners from '../LandingPage/Partners'

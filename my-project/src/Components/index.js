@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 
 
@@ -11,11 +11,10 @@ import PropertiesList from '../Properties/Properties.js';
 import PropertyDetail from '../Properties/PropertyDetails.js';
 import About from '../LandingPage/About.js';
 
-
 import MarketPlace from '../LandingPage/MarketPlace.js';
-
 import TeamPage from '../LandingPage/TeamPage.js';
 import UserProfiles from '../LandingPage/UserProfiles.js';
+import BoughtPropertiesHistory from '../Properties/BoughtPropertiesHistory.js';
 
 
 
@@ -47,7 +46,7 @@ function IndexPage() {
                         <Route path="/property/:propertyId" element={<PropertyDetail />} />
                      
                   
-                  
+                        <Route path="/purchased properties history" element={<BoughtPropertiesHistory />} />
                    </Routes>
                 </BrowserRouter>
 

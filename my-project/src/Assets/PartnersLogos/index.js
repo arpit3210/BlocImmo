@@ -20,6 +20,7 @@ import Investor1 from "./Investor1.webp"
 import Investor2 from "./Investor2.webp"
 import Investor3 from "./Investor3.webp"
 import Connect from "./ConnectWithUs.avif"
+import MetaIcon from "./MetaIcon.png"
 
 
-export { Binance, CoinDCX, CoinDesk, Connect, Forbes, SubmitPropertyPic, Fortune, Ethereumtokenbanner, Mint, TechTimes, TheTokenizer, WazirX, Entrepreneur, SelectProperty1 ,SignUP,StartInvesting, Investor1, Investor2, Investor3 } 
+export { Binance, CoinDCX, MetaIcon, CoinDesk, Connect, Forbes, SubmitPropertyPic, Fortune, Ethereumtokenbanner, Mint, TechTimes, TheTokenizer, WazirX, Entrepreneur, SelectProperty1 ,SignUP,StartInvesting, Investor1, Investor2, Investor3 } 
