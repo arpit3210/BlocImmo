@@ -1,5 +1,5 @@
 // PropertyContext.js
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 
 import Web3 from 'web3';
@@ -55,15 +55,15 @@ export const PropertyProvider = ({ children }) => {
             );
             setContract(contractInstance);
   
-            const price = await contractInstance.methods.bookPrice().call();
-            setBookPrice(Web3.utils.fromWei(price, 'ether'));
+            // const price = await contractInstance.methods.bookPrice().call();
+            // setBookPrice(Web3.utils.fromWei(price, 'ether'));
   
-            const booksOrderedCount = await contractInstance.methods.getBooksOrdered().call({ from: accounts[0] });
-         console.log(booksOrderedCount);
-            setBooksOrdered(Number(booksOrderedCount));
+            // const booksOrderedCount = await contractInstance.methods.getBooksOrdered().call({ from: accounts[0] });
+            // console.log(booksOrderedCount);
+            // setBooksOrdered(Number(booksOrderedCount));
   
-            const balance = await contractInstance.methods.getContractBalance().call();
-            setContractBalance(Web3.utils.fromWei(balance, 'ether'));
+            // const balance = await contractInstance.methods.getContractBalance().call();
+            // setContractBalance(Web3.utils.fromWei(balance, 'ether'));
           } else {
             console.error('Smart contract not deployed to the detected network.');
           }
@@ -74,7 +74,7 @@ export const PropertyProvider = ({ children }) => {
 
 
       
-
+     
   
     // const handlePurchase = async () => {
     //   const tokenPriceWei = await contract.methods.bookPrice().call();
@@ -105,6 +105,18 @@ export const PropertyProvider = ({ children }) => {
   
     // numTokens, setNumTokens
   
+
+
+
+
+useEffect(() => {
+
+  initWeb3();
+}, [account]);
+
+
+
+
   const handleBuyToken = async ()  => {
 
     console.log("before contract calling ")
@@ -138,7 +150,7 @@ export const PropertyProvider = ({ children }) => {
 
   }
 
-
+  
 
   return (
     <PropertyContext.Provider value={{ account, initWeb3, setAccount, handleBuyToken, booksOrdered, setBooksOrdered, contract, setContract, numTokens, setNumTokens, bookPrice, setBookPrice, contractBalance, setContractBalance }}>

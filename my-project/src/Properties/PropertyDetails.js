@@ -14,7 +14,7 @@ import { getFirestore, collection, addDoc } from "firebase/firestore";
 import { v4 as uuidv4 } from 'uuid';
 const PropertyDetails = () => {
   const { propertyId } = useParams();
-
+  const [currentTime, setCurrentTime] = useState(new Date());
 
   const { isSignedIn, user } = useUser();
 //   const senderUserId = user ? user.id : null;
@@ -29,7 +29,7 @@ console.log(user);
   const UserID = user?.primaryEmailAddress.id;
 
   console.log(UserEmailAddress);
-
+console.log(UserID);
   useEffect(() => {
       if (!user || !user.primaryEmailAddress) {
         console.log("User or primaryEmailAddress is not defined.");
@@ -42,13 +42,25 @@ console.log(user);
     }, []);
   
 
+ 
+
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setCurrentTime(new Date());
+      }, 1000); // Update every second
+  
+      return () => clearInterval(interval); // Cleanup interval on component unmount
+    }, []);
+
 
 
   const { account,   initWeb3, handleBuyToken, numTokens, setNumTokens } = useProperty();
 
   const property = propertiesData.properties.find((prop) => prop.id === propertyId);
 
-  const { highlights, financials, details, blockchain, offering, PropertyImages } = property;
+  const { highlights, financials, id, details, blockchain, offering, PropertyImages, type, address,country, source,  neighborhood, constructionYear, bedroomBath, rentalType, isRented, rentSubsidy } = property;
+
+// console.log(id);
 
   const [propertyImg, setpropertyImg] = useState(PropertyImages.PropertyImage1)
 
@@ -59,10 +71,20 @@ console.log(user);
   }
 
 
+
+
+
   const NumberOfToken = numTokens;
 console.log( highlights);
 
   const PropertyData = {
+    Unique_Identifier_Property: id,
+    PropertyType: type,
+    PropertyAddress: address,
+    PropertyCountry: country,
+    PropertySource: source,
+    TimeOfTransaction: currentTime,
+    YearOfConstruction: constructionYear,
     PropertyType: property.type,
 PropertyCountryLocation: property.country,
 PropertySource: property.source,
@@ -80,9 +102,8 @@ PropertySource: property.source,
     BlockChain:blockchain ,
     Offering:  offering,
   propertyImages: PropertyImages,
-
-
   }
+
 
   console.log(PropertyData );
 
@@ -176,7 +197,7 @@ PropertySource: property.source,
             {/* <ConnectWallet></ConnectWallet> */}
 
           </div>
-          <div className="flex flex-col md:flex-row  bg-gray-100 p-8 shadow-lg rounded-lg">
+          <div className="flex flex-col  md:flex-row  bg-gray-100 p-8 shadow-lg rounded-lg">
             <div className="md:w-1/2 mb-4 md:mb-0">
               <img
                 src={propertyImg}
@@ -210,9 +231,9 @@ PropertySource: property.source,
               </div>
             </div>
 
-            <div className="md:w-1/2 md:ml-4">
+            <div className="md:w-1/2  text-gray-600 md:ml-4">
               <div className="mb-4">
-                <p className="text-lg font-bold">{property.type}</p>
+                <p className="text-lg text-gray-600 font-bold">{property.type}</p>
                 <p className="text-gray-600">{property.country}</p>
                 <p className="text-gray-600">{property.source}</p>
               </div>

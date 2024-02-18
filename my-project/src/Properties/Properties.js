@@ -55,7 +55,7 @@ const PropertiesCard = ({ property }) => {
   return (
 
 
-    <div className="flex flex-col md:flex-row bg-gray-100 p-8 shadow-lg rounded-lg">
+    <div className="flex text-gray-600 flex-col md:flex-row bg-gray-100 p-8 shadow-lg rounded-lg">
       <div className="md:w-1/2 mb-4 md:mb-0">
         <img
           src={propertyImg}

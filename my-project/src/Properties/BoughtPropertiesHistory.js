@@ -1,55 +1,65 @@
-import React from 'react'
-import Navbar from '../LandingPage/Navbar'
+import React, { useEffect, useState } from 'react';
+import Navbar from '../LandingPage/Navbar';
+import { getFirestore, collection, query, where, getDocs } from "firebase/firestore";
+import { useUser } from '@clerk/clerk-react';
+import moment from 'moment'; // Import moment.js for date formatting
 
 const BoughtPropertiesHistory = () => {
+    const { user } = useUser();
+    const [boughtProperties, setBoughtProperties] = useState([]);
 
+    useEffect(() => {
+        const fetchPropertyPurchaseHistory = async () => {
+            if (user) {
+                const db = getFirestore();
+                try {
+                    const q = query(collection(db, 'users', user.id, 'purchased_property_history'));
+                    const querySnapshot = await getDocs(q);
 
-   // Sample list of properties already bought
-   const boughtProperties = [
-    {
-        id: 1,
-        address: '123 Main Street',
-        city: 'New York',
-        state: 'NY',
-        purchaseDate: '2023-01-15',
-        price: '$500,000',
-        tokensBought: 1500 // Number of tokens bought for this property
-    },
-    {
-        id: 2,
-        address: '456 Oak Avenue',
-        city: 'Los Angeles',
-        state: 'CA',
-        purchaseDate: '2023-03-20',
-        price: '$750,000',
-        tokensBought: 2000 // Number of tokens bought for this property
-    },
-    // Add more properties as needed
-];
+                    const properties = [];
+                    querySnapshot.forEach((doc) => {
+                        properties.push({ id: doc.id, ...doc.data() });
+                    });
 
+                    // Sort properties based on TimeOfTransaction in descending order (newest first)
+                    properties.sort((a, b) => b.TimeOfTransaction - a.TimeOfTransaction);
+
+                    setBoughtProperties(properties);
+                } catch (error) {
+                    console.error("Error fetching property purchase history:", error);
+                }
+            }
+        };
+
+        fetchPropertyPurchaseHistory();
+    }, [user]);
 
     return (
         <div>
-   <div className='pb-20'><Navbar></Navbar></div>
-
-
-<div className="container mx-auto px-4 py-8">
-            <h1 className="text-3xl font-bold mb-4">Property Purchase History</h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {boughtProperties.map(property => (
-                    <div key={property.id} className="bg-white shadow-lg rounded-lg p-6">
-                        <h2 className="text-xl font-semibold mb-2">{property.address}</h2>
-                        <p className="text-gray-600 mb-2">{property.city}, {property.state}</p>
-                        <p className="text-gray-600 mb-2">Purchase Date: {property.purchaseDate}</p>
-                        <p className="text-gray-600 mb-2">Price: {property.price}</p>
-                        <p className="text-gray-600 mb-2">Tokens Bought: {property.tokensBought}</p>
-                    </div>
-                ))}
+            <div className='pb-20'><Navbar /></div>
+            <div className="container mx-auto px-4 py-8">
+                <h1 className="text-3xl text-gray-500 font-bold mb-4">Property Purchase History</h1>
+             <span className='text-gray-500'>   Latest Transaction on top 🔝</span>
+                <div className="flex flex-col  gap-4">
+                    {boughtProperties.map(property => (
+                        <div key={property.TransactionId} className="bg-white hover:bg-gray-100 shadow-lg rounded-lg p-6">
+                            <h2 className="text-xl text-gray-500  font-semibold mb-2">Transaction Id: <span className='text-green-600  font-thin '>{property.TransactionId}</span></h2>
+                            <p className=" font-semibold text-gray-500 mb-2">Tokens Wallet Address: <span className='text-green-600 text-sm font-thin'>{property.WalletAddress} </span> </p>
+                            <p className="text-gray-600 mb-2">{property.BlockChain.identifier} </p>
+                            <p className="text-gray-600 mb-2">{property.PropertyType} </p>
+                            <p className="text-gray-600 mb-2">{property.PropertyAddress} </p>
+                            <p className="text-gray-600 mb-2">{property.PropertyCountry} </p>
+                            <p className="text-gray-600 mb-2">{property.PropertySource} </p>
+                             {/* Convert Firestore Timestamp to JavaScript Date object and format using moment.js */}
+                             <p className="text-gray-600 mb-2">Purchase Date: {moment(property.TimeOfTransaction.toDate()).format('MM/DD/YYYY HH:mm:ss')}</p>
+                            <p className="text-gray-600 mb-2">Token Price: {property.PricePerToken}</p>
+                            <p className="text-green-600 font-semibold mb-2">Tokens Bought: {property.Number_of_Token}</p>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
+    );
+};
 
-        </div>
-    )
-}
-
-export default BoughtPropertiesHistory
+export default BoughtPropertiesHistory;
