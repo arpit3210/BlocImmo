@@ -1,17 +1,50 @@
 // PropertyDetails.js
 
 import React, { useState, useEffect, useRef } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import propertiesData from '../PropertiesFiles/Properties.json';
 import Navbar from '../LandingPage/Navbar';
 import Footer from '../LandingPage/Footer';
 import { RedirectToSignIn, SignedIn, SignedOut, useUser } from '@clerk/clerk-react';
 import { useProperty } from '../Contexts/PropertyContext';
+import ReactDOM from 'react-dom';
+import Modal from 'react-modal';
+import Loaders from '../Components/Loaders';
+
+import { GrStatusGood } from "react-icons/gr";
 
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 
 // import ConnectWallet from '../LandingPage/ConnectWallet';
 import { v4 as uuidv4 } from 'uuid';
+import { toast } from 'react-toastify';
+
+
+
+
+
+
+
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+  },
+};
+
+// Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
+// Modal.setAppElement('#yourAppElement');
+
+
+
+
+
+
+
 const PropertyDetails = () => {
   const { propertyId } = useParams();
   const [currentTime, setCurrentTime] = useState(new Date());
@@ -20,7 +53,35 @@ const PropertyDetails = () => {
   //   const senderUserId = user ? user.id : null;
   // console.log("this is sender user id", senderUserId);
 
-  console.log(user);
+  // console.log(user);
+
+
+
+
+  let subtitle;
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    subtitle.style.color = '#f00';
+  }
+
+  function closeModal() {
+
+    setLoader(false);
+    setSuccess(false);
+    setErrors(false);
+
+
+    setIsOpen(false);
+  }
+
+
+
 
   const UserEmailAddress = user?.primaryEmailAddress.emailAddress;
   const UserFirstName = user?.firstName;
@@ -28,8 +89,8 @@ const PropertyDetails = () => {
   const UserFullName = user?.fullName;
   const UserID = user?.primaryEmailAddress.id;
 
-  console.log(UserEmailAddress);
-  console.log(UserID);
+  // console.log(UserEmailAddress);
+  // console.log(UserID);
   useEffect(() => {
     if (!user || !user.primaryEmailAddress) {
       console.log("User or primaryEmailAddress is not defined.");
@@ -54,7 +115,7 @@ const PropertyDetails = () => {
 
 
 
-  const { account, initWeb3, handleBuyToken, numTokens, setNumTokens, AddDataToFirebase } = useProperty();
+  const { Loader, Success, Errors, setLoader, setSuccess, setErrors, account, initWeb3, handleBuyToken, numTokens, setNumTokens, AddDataToFirebase } = useProperty();
 
   const property = propertiesData.properties.find((prop) => prop.id === propertyId);
 
@@ -75,7 +136,7 @@ const PropertyDetails = () => {
 
 
   const NumberOfToken = numTokens;
-  console.log(highlights);
+  // console.log(highlights);
 
   const PropertyData = {
     Unique_Identifier_Property: id,
@@ -105,7 +166,7 @@ const PropertyDetails = () => {
   }
 
 
-  console.log(PropertyData);
+  // console.log(PropertyData);
 
   // const { highlights, offering } = property;
 
@@ -123,9 +184,30 @@ const PropertyDetails = () => {
       console.log("Property added with ID:", PropertyDocRef.id);
     } catch (error) {
       console.error("Error adding Property:", error);
+      toast.error("Error adding Property:", error);
     }
   };
 
+
+
+
+  const BuyTokenOfProperty = async () => {
+    initWeb3();
+
+    openModal();
+
+
+    const value = blockchain.ethereum.contractAddress;
+    console.log("this is the smartcontract", value)
+
+    if (await handleBuyToken(value)) {
+      handleAddToFirebase();
+      toast.success("Transaction Completed Successfully!");
+    }
+
+
+
+  }
 
   const handleAddToFirebase = () => {
     // Call the AddDataToFirebase function as needed
@@ -152,6 +234,7 @@ const PropertyDetails = () => {
   //   // You can perform actions like updating user data, making API calls, etc.
   //   alert(`Successfully bought ${numTokens} tokens for ${property.address}`);
   // };
+
 
 
 
@@ -185,6 +268,124 @@ const PropertyDetails = () => {
 
 
       <SignedIn>
+
+
+
+
+
+
+
+
+        <div>
+          {/* <button onClick={openModal}>Open Modal</button> */}
+          <Modal
+            isOpen={modalIsOpen}
+            onAfterOpen={afterOpenModal}
+            // onRequestClose={closeModal}
+            style={{ customStyles }}
+
+            contentLabel="Example Modal"
+          >
+
+            <div className='flex flex-col justify-center h-full items-center'>
+
+
+
+              {/* Loader Modal  */}
+
+              <h2 ref={(_subtitle) => (subtitle = _subtitle)}></h2>
+
+
+              {/* Loader */}
+
+              {Loader ? (<Loaders />) : (
+                <div></div>
+              )
+              }
+
+
+
+              {/* Success */}
+              {Success &&
+
+                <div className='flex flex-col justify-center items-center '>
+                  <div className='flex flex-row justify-between place-items-end '>
+                    <div />
+                    {/* <button className='py-3 px-6 font-semibold  bg-blue-400 hover:bg-blue-500 text-white text-xl rounded-2xl ' onClick={closeModal}>Close</button> */}
+                  </div>
+                  <div className='flex flex-col bg-white max-md:w-[90vw] w-[50vw] h-[50vh] justify-center items-center'>
+                    <h2 ref={(_subtitle) => (subtitle = _subtitle)}></h2>
+                    {/* <Loader></Loader> */}
+                    <div>
+                      <h1 className='text-green-500  text-2xl font-bold  '>Your Transaction Successfully Completed</h1>
+                    </div>
+                    <GrStatusGood className='text-7xl text-green-500 my-4' />
+                  </div>
+
+                  {/* <Link to="/purchased properties history">
+<button className='py-3 px-6 font-semibold hover:bg-green-600 bg-green-500 my-5 text-white text-xl mx-4 rounded-2xl'>Transaction History ✅ </button>
+</Link> */}
+
+
+
+                  <button onClick={closeModal} className='py-3 px-6 font-semibold my-5 hover:bg-green-600 bg-green-500 mx-4 text-white text-xl rounded-2xl'>Okay</button>
+                </div>
+              }
+
+              {/* Error Modal */}
+
+              {Errors ? (
+
+                <div className='flex flex-col justify-center items-center '>
+                  <div className='flex flex-row justify-between place-items-end '>
+                    <div />
+                    {/* <button className='py-3 px-6 font-semibold  bg-blue-400 hover:bg-blue-500 text-white text-xl rounded-2xl ' onClick={closeModal}>Close</button> */}
+                  </div>
+                  <div className='flex flex-col bg-white max-md:w-[90vw] w-[50vw] h-[50vh] justify-center items-center'>
+                    <h2 ref={(_subtitle) => (subtitle = _subtitle)}></h2>
+                    {/* <Loader></Loader> */}
+                    <div>
+                      <h1 className='text-red-500  text-2xl font-bold  '>Your Transaction Failed</h1>
+                    </div>
+                    <GrStatusGood className='text-7xl text-red-500 my-4' />
+                  </div>
+                  <button onClick={closeModal} className='py-3 px-6 font-semibold hover:bg-red-600 bg-red-500 text-white text-xl rounded-2xl'>Try Again</button>
+                </div>
+
+              ) : (
+                <div></div>
+
+              )
+
+
+
+              }
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+
+          </Modal>
+        </div>
+
+
+
+
+
+
+
+
 
         <div  >
 
@@ -326,13 +527,13 @@ const PropertyDetails = () => {
                   className="border p-2 mb-2"
                 />
                 <p>Total Price: ${calculateTotalPrice().toFixed(2)}</p>
-                <button onClick={handleBuyToken} className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">
+                <button onClick={BuyTokenOfProperty} className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">
                   Buy Tokens
                 </button>
 
-                <button onClick={handleAddToFirebase} className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">
+                {/* <button onClick={handleAddToFirebase} className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">
                   Add To Firebase
-                </button>
+                </button> */}
 
               </div>
 
