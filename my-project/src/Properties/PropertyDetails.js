@@ -11,8 +11,22 @@ import { useProperty } from '../Contexts/PropertyContext';
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 
 // import ConnectWallet from '../LandingPage/ConnectWallet';
+
+
+import { useDispatch } from 'react-redux';
+import { setSenderUserId } from '../redux/slices/propertySlice';
+
+
+
 import { v4 as uuidv4 } from 'uuid';
+
+
+
 const PropertyDetails = () => {
+
+  const dispatch = useDispatch();
+
+
   const { propertyId } = useParams();
   const [currentTime, setCurrentTime] = useState(new Date());
 
@@ -53,6 +67,15 @@ const PropertyDetails = () => {
   }, []);
 
 
+
+  useEffect(() => {
+    // Simulate getting sender user ID from somewhere (e.g., user object)
+    const senderUserId = user ? user.id : null;
+    // Dispatch action to set sender user ID
+    dispatch(setSenderUserId(senderUserId));
+  }, [dispatch]);
+
+  
 
   const { account, initWeb3, handleBuyToken, numTokens, setNumTokens, AddDataToFirebase } = useProperty();
 
@@ -107,9 +130,13 @@ const PropertyDetails = () => {
 
   console.log(PropertyData);
 
+
+
+
+
   // const { highlights, offering } = property;
 
-  const senderUserId = user ? user.id : null;
+    const senderUserId = user ? user.id : null;
   const AddToFirebaseTransaction = async (senderUserId, PropertyData) => {
     try {
       const db = getFirestore();
@@ -125,6 +152,7 @@ const PropertyDetails = () => {
       console.error("Error adding Property:", error);
     }
   };
+
 
 
   const handleAddToFirebase = () => {
@@ -171,12 +199,9 @@ const PropertyDetails = () => {
     );
   };
 
+
   return (
-
     <>
-
-
-
       <SignedOut>
 
         <RedirectToSignIn />

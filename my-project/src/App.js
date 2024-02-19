@@ -11,6 +11,13 @@ import {getDatabase} from "firebase/database"
 import { app } from "./firebase.js"
 import { PropertyProvider } from "./Contexts/PropertyContext.js";
 
+import { Provider } from 'react-redux';
+
+import store from "./redux/store.js";
+
+
+
+
 function App() {
 
   const db= getDatabase(app);
@@ -75,7 +82,11 @@ function App() {
 
 <PropertyProvider>
 
+<Provider store={store}>
 <IndexPage/>
+  </Provider>
+
+
 
 </PropertyProvider>
 

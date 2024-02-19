@@ -1,5 +1,7 @@
 // PropertyContext.js
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { AddToFirebaseTransaction } from './PropertyDetails'; // Assuming AddToFirebaseTransaction is exported from PropertyDetails.js
 
 
 import Web3 from 'web3';
@@ -9,8 +11,6 @@ import PropertyContract from '../Contracts/Property.json';
 const PropertyContext = createContext();
 
 export const PropertyProvider = ({ children }) => {
-
-
 
 
 // eslint-disable-next-line
