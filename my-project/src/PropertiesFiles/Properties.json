@@ -50,13 +50,13 @@
                 "identifier": "BLOCIMMOTOKEN-PROP1-CITYVILLE-CA",
                 "totalTokens": 2500,
                 "EthereumChain": {
-                    "contractAddress": "0x3a1b...fa92e5",
-                    "ownerWallet": "0xCb47...285Ef7",
+                    "contractAddress": "0x4eC8a747f95B4aBEDA5375Ff8241fAc9d4BEa2c2",
+                    "ownerWallet": "0x1c831f0aFabc352E19668A6F9BDe28CE4b11644E",
                     "levinswapPool": "0x9bd3...1a8b5d"
                 },
                 "ethereum": {
-                    "contractAddress": "0x3a1b...fa92e5",
-                    "ownerWallet": "0xCb47...285Ef7"
+                    "contractAddress": "0x4eC8a747f95B4aBEDA5375Ff8241fAc9d4BEa2c2",
+                    "ownerWallet": "0x1c831f0aFabc352E19668A6F9BDe28CE4b11644E"
                 }
             },
             "offering": {
@@ -118,13 +118,13 @@
                 "identifier": "BLOCIMMOTOKEN-PROP2-SUBURBIA-TX",
                 "totalTokens": 3000,
                 "EthereumChain": {
-                    "contractAddress": "0x7f8c...e2d94a",
-                    "ownerWallet": "0x9Ae1...7bE2F1",
+                    "contractAddress": "0x997B7dAAC286ED1871f78E8e9B27FC36EEb00b95",
+                    "ownerWallet": "0x1c831f0aFabc352E19668A6F9BDe28CE4b11644E",
                     "levinswapPool": "0x0c3a...3d6b9c"
                 },
                 "ethereum": {
-                    "contractAddress": "0x7f8c...e2d94a",
-                    "ownerWallet": "0x9Ae1...7bE2F1"
+                    "contractAddress": "0x997B7dAAC286ED1871f78E8e9B27FC36EEb00b95",
+                    "ownerWallet": "0x1c831f0aFabc352E19668A6F9BDe28CE4b11644E"
                 }
             },
             "offering": {
@@ -186,13 +186,13 @@
                 "identifier": "BLOCIMMOTOKEN-PROP3-METROCITY-FL",
                 "totalTokens": 2000,
                 "EthereumChain": {
-                    "contractAddress": "0x5b9d...d8a73f",
-                    "ownerWallet": "0x8E7b...5A7dD6",
+                    "contractAddress": "0x1bF8d3CFF586D5Bf5492cde382641f32a66A436E",
+                    "ownerWallet": "0x1c831f0aFabc352E19668A6F9BDe28CE4b11644E",
                     "levinswapPool": "0x4f2b...c1e6a2"
                 },
                 "ethereum": {
-                    "contractAddress": "0x5b9d...d8a73f",
-                    "ownerWallet": "0x8E7b...5A7dD6"
+                    "contractAddress": "0x1bF8d3CFF586D5Bf5492cde382641f32a66A436E",
+                    "ownerWallet": "0x1c831f0aFabc352E19668A6F9BDe28CE4b11644E"
                 }
             },
             "offering": {
@@ -254,13 +254,13 @@
                 "identifier": "BLOCIMMOTOKEN-PROP4-SUBURBIA-CA",
                 "totalTokens": 2800,
                 "EthereumChain": {
-                    "contractAddress": "0x6c2a...f4d82a",
-                    "ownerWallet": "0xD4c8...7E9bC1",
+                    "contractAddress": "0xA392324D1491f439c3c93e59699c1074276c3893",
+                    "ownerWallet": "0x1c831f0aFabc352E19668A6F9BDe28CE4b11644E",
                     "levinswapPool": "0x3e5d...a2d6c4"
                 },
                 "ethereum": {
-                    "contractAddress": "0x6c2a...f4d82a",
-                    "ownerWallet": "0xD4c8...7E9bC1"
+                    "contractAddress": "0xA392324D1491f439c3c93e59699c1074276c3893",
+                    "ownerWallet": "0x1c831f0aFabc352E19668A6F9BDe28CE4b11644E"
                 }
             },
             "offering": {

@@ -13,9 +13,9 @@ contract Property is ERC20, ERC20Burnable, Ownable, ERC20Permit, ERC20Votes {
 
     // ** we can change the delay and price of token time as well according to our requirements.....
 
-    constructor() ERC20("BLOCIMMOTOKEN-PROP1-CITYVILLE-CA", "BPCICA") ERC20Permit("BLOCIMMOTOKEN-PROP1-CITYVILLE-CA") {
+    constructor() ERC20("BLOCIMMOTOKEN-PROP4-SUBURBIA-CA", "BPSUCA") ERC20Permit("BLOCIMMOTOKEN-PROP4-SUBURBIA-CA") {
         // _mint(msg.sender, 10000 * 10 ** decimals());
-        _mint(msg.sender, 2500);
+        _mint(msg.sender, 2800);
     }
 
     function buyTokens(uint256 amount) public payable {

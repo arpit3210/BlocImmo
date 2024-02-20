@@ -1,35 +1,101 @@
 // PropertyDetails.js
 
-import React, { useState, useEffect, useRef } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import {  useParams } from 'react-router-dom';
 import propertiesData from '../PropertiesFiles/Properties.json';
 import Navbar from '../LandingPage/Navbar';
 import Footer from '../LandingPage/Footer';
 import { RedirectToSignIn, SignedIn, SignedOut, useUser } from '@clerk/clerk-react';
 import { useProperty } from '../Contexts/PropertyContext';
+// import ReactDOM from 'react-dom';
+import Modal from 'react-modal';
+import Loaders from '../Components/Loaders';
+
+import { GrStatusGood } from "react-icons/gr";
 
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 
 // import ConnectWallet from '../LandingPage/ConnectWallet';
 import { v4 as uuidv4 } from 'uuid';
+import { toast } from 'react-toastify';
+import ConnectWalletButton from '../LandingPage/ConnectWalletButton';
+
+
+
+
+
+
+
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    background: 'black',
+    transform: 'translate(-50%, -50%)',
+  },
+};
+
+// Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
+// Modal.setAppElement('#yourAppElement');
+
+
+
+
+
+
+
 const PropertyDetails = () => {
   const { propertyId } = useParams();
   const [currentTime, setCurrentTime] = useState(new Date());
 
+  // eslint-disable-next-line
   const { isSignedIn, user } = useUser();
   //   const senderUserId = user ? user.id : null;
   // console.log("this is sender user id", senderUserId);
 
-  console.log(user);
+  // console.log(user);
+
+
+
+
+  let subtitle;
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    subtitle.style.color = '#f00';
+  }
+
+  function closeModal() {
+
+    setLoader(false);
+    setSuccess(false);
+    setErrors(false);
+
+
+    setIsOpen(false);
+  }
+
+
+
 
   const UserEmailAddress = user?.primaryEmailAddress.emailAddress;
   const UserFirstName = user?.firstName;
   const UserLastName = user?.lastName;
   const UserFullName = user?.fullName;
+
+  // eslint-disable-next-line
   const UserID = user?.primaryEmailAddress.id;
 
-  console.log(UserEmailAddress);
-  console.log(UserID);
+  // console.log(UserEmailAddress);
+  // console.log(UserID);
   useEffect(() => {
     if (!user || !user.primaryEmailAddress) {
       console.log("User or primaryEmailAddress is not defined.");
@@ -39,6 +105,8 @@ const PropertyDetails = () => {
     // const receiverEmail = user.primaryEmailAddress.emailAddress;
     const UserEmailAddress = user?.primaryEmailAddress.emailAddress;
     console.log("User Email Address:", UserEmailAddress);
+
+    // eslint-disable-next-line
   }, []);
 
 
@@ -53,11 +121,12 @@ const PropertyDetails = () => {
   }, []);
 
 
-
-  const { account, initWeb3, handleBuyToken, numTokens, setNumTokens, AddDataToFirebase } = useProperty();
+// eslint-disable-next-line
+  const { Loader, Success, Errors, setLoader, setSuccess, setErrors, account, initWeb3, handleBuyToken, numTokens, setNumTokens, AddDataToFirebase } = useProperty();
 
   const property = propertiesData.properties.find((prop) => prop.id === propertyId);
 
+  // eslint-disable-next-line
   const { highlights, financials, id, details, blockchain, offering, PropertyImages, type, address, country, source, neighborhood, constructionYear, bedroomBath, rentalType, isRented, rentSubsidy } = property;
 
   // console.log(id);
@@ -75,7 +144,8 @@ const PropertyDetails = () => {
 
 
   const NumberOfToken = numTokens;
-  console.log(highlights);
+  // console.log(highlights);
+
 
   const PropertyData = {
     Unique_Identifier_Property: id,
@@ -85,8 +155,13 @@ const PropertyDetails = () => {
     PropertySource: source,
     TimeOfTransaction: currentTime,
     YearOfConstruction: constructionYear,
+      // eslint-disable-next-line
     PropertyType: property.type,
+
+      // eslint-disable-next-line
     PropertyCountryLocation: property.country,
+
+      // eslint-disable-next-line
     PropertySource: property.source,
     Number_of_Token: NumberOfToken,
     Email: UserEmailAddress,
@@ -105,7 +180,7 @@ const PropertyDetails = () => {
   }
 
 
-  console.log(PropertyData);
+  // console.log(PropertyData);
 
   // const { highlights, offering } = property;
 
@@ -123,10 +198,31 @@ const PropertyDetails = () => {
       console.log("Property added with ID:", PropertyDocRef.id);
     } catch (error) {
       console.error("Error adding Property:", error);
+      toast.error("Error adding Property:", error);
     }
   };
 
   
+
+
+
+  const BuyTokenOfProperty = async () => {
+    initWeb3();
+
+    openModal();
+
+
+    const value = blockchain.ethereum.contractAddress;
+    console.log("this is the smartcontract", value)
+
+    if (await handleBuyToken(value)) {
+      handleAddToFirebase();
+      toast.success("Transaction Completed Successfully!");
+    }
+
+
+
+  }
 
   const handleAddToFirebase = () => {
     // Call the AddDataToFirebase function as needed
@@ -156,6 +252,7 @@ const PropertyDetails = () => {
 
 
 
+
   const AccordionSection = ({ title, content }) => {
     const [isOpen, setIsOpen] = useState(false);
 
@@ -174,7 +271,7 @@ const PropertyDetails = () => {
 
   return (
 
-    <>
+    <div className='bg-gradient-to-r text-gray-200 from-gray-800 via-gray-900 to-black'>
 
 
 
@@ -187,17 +284,126 @@ const PropertyDetails = () => {
 
       <SignedIn>
 
+
+
+
+
+
+        <div>
+          {/* <button onClick={openModal}>Open Modal</button> */}
+          <Modal
+            isOpen={modalIsOpen}
+            onAfterOpen={afterOpenModal}
+            // onRequestClose={closeModal}
+       
+            style={{ customStyles }}
+
+            contentLabel="Example Modal"
+          >
+
+            <div className='flex flex-col justify-center bg-gradient-to-r from-gray-800 via-gray-900 to-black  h-full items-center'>
+
+
+
+              {/* Loader Modal  */}
+
+              <h2 ref={(_subtitle) => (subtitle = _subtitle)}>.</h2>
+
+
+              {/* Loader */}
+
+              {Loader ? (<Loaders />) : (
+                <div></div>
+              )
+              }
+
+
+
+              {/* Success */}
+              {Success &&
+
+                <div className=' rounded-2xl flex bg-gradient-to-r from-gray-800 via-gray-900 to-black flex-col justify-center items-center '>
+                  <div className='flex flex-row justify-between place-items-end '>
+                    <div />
+                    {/* <button className='py-3 px-6 font-semibold  bg-blue-400 hover:bg-blue-500 text-white text-xl rounded-2xl ' onClick={closeModal}>Close</button> */}
+                  </div>
+                  <div className='flex flex-col bg-gradient-to-r from-gray-800 via-gray-900 to-black max-md:w-[90vw] w-[50vw] h-[50vh] justify-center items-center'>
+                    <h2 ref={(_subtitle) => (subtitle = _subtitle)}>.</h2>
+                    {/* <Loader></Loader> */}
+                    <div>
+                      <h1 className='text-green-500 max-md:text-base text-2xl font-bold  '>Your Transaction Successfully Completed</h1>
+                    </div>
+                    <GrStatusGood className='text-7xl text-green-500 my-4' />
+                  </div>
+
+                  {/* <Link to="/purchased properties history">
+<button className='py-3 px-6 font-semibold hover:bg-green-600 bg-green-500 my-5 text-white text-xl mx-4 rounded-2xl'>Transaction History ✅ </button>
+</Link> */}
+
+
+
+                  <button onClick={closeModal} className='py-2 px-6 font-semibold my-5 hover:bg-green-700 bg-green-600 mx-4 text-gray-200 text-xl rounded-2xl'>Okay</button>
+                </div>
+              }
+
+              {/* Error Modal */}
+
+              {Errors ? (
+
+                <div className='flex  flex-col justify-center items-center rounded-3xl bg-gradient-to-r from-gray-800 via-gray-900 to-black '>
+                  <div className='flex flex-row justify-between place-items-end '>
+                    <div />
+                    {/* <button className='py-3 px-6 font-semibold  bg-blue-400 hover:bg-blue-500 text-white text-xl rounded-2xl ' onClick={closeModal}>Close</button> */}
+                  </div>
+                  <div className='flex flex-col bg-gradient-to-r from-gray-800 via-gray-900 to-black rounded-3xl max-md:w-[90vw] w-[50vw] h-[50vh] justify-center items-center'>
+                    <h2 ref={(_subtitle) => (subtitle = _subtitle)}>.</h2>
+                    {/* <Loader></Loader> */}
+                    <div>
+                      <h1 className='text-red-500 max-md:text-base text-2xl font-bold  '>Your Transaction Failed</h1>
+                    </div>
+                    <GrStatusGood className='text-7xl text-red-500 my-4' />
+                  </div>
+                  <button onClick={closeModal} className='py-2 px-6 font-semibold hover:bg-red-700 bg-red-600 text-gray-200 text-xl rounded-2xl'>Try Again</button>
+                </div>
+
+              ) : (
+                <div></div>
+
+              )
+
+
+
+              }
+
+
+
+            </div>
+
+
+
+          </Modal>
+        </div>
+
+
+
+
+
+
+
+
+
         <div  >
 
-          <div className='pb-20'><Navbar></Navbar></div>
+          <div className='pb-20 fixed '><Navbar></Navbar>   </div>  
+           <div className=' py-10   '>  </div>
 
-          <div className='flex justify-between items-center mx-6'>
+          <div className='flex justify-between py-16 items-center mx-6'>
 
             <h2 className="text-2xl font-bold mb-4">Property Details</h2>
-            {/* <ConnectWallet></ConnectWallet> */}
+            <ConnectWalletButton></ConnectWalletButton>
 
           </div>
-          <div className="flex flex-col  md:flex-row  bg-gray-100 p-8 shadow-lg rounded-lg">
+          <div className="flex flex-col  md:flex-row   p-8 shadow-lg rounded-lg   text-white   bg-gradient-to-br from-gray-700 via-gray-900 to-gray-700  ">
             <div className="md:w-1/2 mb-4 md:mb-0">
               <img
                 src={propertyImg}
@@ -206,7 +412,7 @@ const PropertyDetails = () => {
               />
 
 
-              <div className='flex flex-wrap-reverse justify-start gap-4 items-center p-3'>
+              <div className='flex flex-wrap-reverse  justify-start gap-4 items-center p-3'>
                 {[
                   PropertyImages.PropertyImage1,
                   PropertyImages.PropertyImage2,
@@ -217,13 +423,13 @@ const PropertyDetails = () => {
                   <div
                     key={index}
                     onClick={() => handlechangeImage(imageSrc)}
-                    className='lg:w-20 cursor-pointer w-14 lg:h-20 h-14'
+                    className='lg:w-20 cursor-pointer w-14 lg:h-20 h-14  '
                     style={{ flexShrink: 0 }}
                   >
                     <img
                       src={imageSrc}
                       alt={`PropertyImage${index + 1}`}
-                      className={`w-full h-full object-cover rounded-lg transition-opacity duration-300 ${selectedImage === imageSrc ? 'opacity-100' : 'opacity-50'
+                      className={`w-full h-full  object-cover rounded-lg transition-opacity duration-300 ${selectedImage === imageSrc ? 'opacity-100   ' : 'opacity-40 '
                         }`}
                     />
                   </div>
@@ -231,11 +437,11 @@ const PropertyDetails = () => {
               </div>
             </div>
 
-            <div className="md:w-1/2  text-gray-600 md:ml-4">
+            <div className="md:w-1/2  text-white md:ml-4">
               <div className="mb-4">
-                <p className="text-lg text-gray-600 font-bold">{property.type}</p>
-                <p className="text-gray-600">{property.country}</p>
-                <p className="text-gray-600">{property.source}</p>
+                <p className="text-lg text-white font-bold">{property.type}</p>
+                <p className="text-white">{property.country}</p>
+                <p className="text-white">{property.source}</p>
               </div>
 
               <address className="mb-4">
@@ -314,26 +520,30 @@ const PropertyDetails = () => {
 
 
               <div className="mb-4">
-                <p className="text-lg font-bold">Buy Tokens</p>
-                <label htmlFor="numTokens" className="block mb-2">
-                  Number of Tokens:
-                </label>
-                <input
-                  type="number"
-                  id="numTokens"
-                  name="numTokens"
-                  value={numTokens}
-                  onChange={handleTokenChange}
-                  className="border p-2 mb-2"
-                />
-                <p>Total Price: ${calculateTotalPrice().toFixed(2)}</p>
-                <button onClick={handleBuyToken} className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">
-                  Buy Tokens
-                </button>
+              <div class="space-y-4">
+  <p class="text-xl font-bold">Buy Tokens</p>
+  <label for="numTokens" class="block mb-2">Number of Tokens:</label>
+  <input
+    type="number"
+    id="numTokens"
+    name="numTokens"
+    value={numTokens}
+    onChange={handleTokenChange}
+    class="border p-2 text-black font-bold mb-2"
+  />
+  <p class="text-lg">Total Price: ${calculateTotalPrice().toFixed(2)}</p>
+</div>
 
-                <button onClick={handleAddToFirebase} className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">
+
+<button onClick={BuyTokenOfProperty} class="bg-gradient-to-r from-green-400 to-blue-500 text-white py-2 px-4 rounded-md hover:from-green-500 hover:to-blue-600">
+    Buy Tokens
+</button>
+
+
+
+                {/* <button onClick={handleAddToFirebase} className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">
                   Add To Firebase
-                </button>
+                </button> */}
 
               </div>
 
@@ -347,7 +557,7 @@ const PropertyDetails = () => {
 
       </SignedIn>
 
-    </>
+    </div>
 
 
 
