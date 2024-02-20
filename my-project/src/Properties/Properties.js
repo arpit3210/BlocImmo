@@ -11,7 +11,7 @@ import Footer from '../LandingPage/Footer';
 
 const PropertiesList = () => {
   return (
-    <>
+    <div className='bg-gradient-to-r from-gray-800 via-gray-900 to-black'>
       <Navbar></Navbar>
 
       <div className='h-52'>
@@ -30,7 +30,7 @@ const PropertiesList = () => {
 
 
       <Footer></Footer>
-    </>
+    </div>
   );
 };
 
@@ -55,7 +55,7 @@ const PropertiesCard = ({ property }) => {
   return (
 
 
-    <div className="flex text-gray-600 flex-col md:flex-row bg-gray-100 p-8 shadow-lg rounded-lg">
+    <div className="flex  flex-col  md:flex-row  p-8 shadow-lg rounded-lg   text-white   bg-gradient-to-br from-gray-700 via-gray-900 to-gray-700  ">
       <div className="md:w-1/2 mb-4 md:mb-0">
         <img
           src={propertyImg}
@@ -122,7 +122,7 @@ const PropertiesCard = ({ property }) => {
           <p>{highlights.rentStartDate}</p>
         </div>
 
-        <Link to={`/property/${property.id}`} className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">
+        <Link to={`/property/${property.id}`} className="bg-gradient-to-r from-green-400 to-blue-500 text-white py-2 px-4 rounded-md hover:from-green-500 hover:to-blue-600">
           VIEW PROPERTY
         </Link>
 

@@ -54,6 +54,7 @@ export const PropertyProvider = ({ children }) => {
       // Specify Goerli network ID
 
     } catch (error) {
+      
       console.error('Error connecting to Ethereum:', error);
     }
   };

@@ -22,6 +22,25 @@ const Navbar = () => {
 
     const UserEmailAddress = user?.primaryEmailAddress.emailAddress;
 
+
+    const [Navbar, setNavbar] = useState(false);
+    // console.log("this is ScrollToPlugin", window.scrollY);
+
+    const ChangeBackground = () => {
+        if (window.scrollY >= 30) {
+            setNavbar(true);
+        } else {
+            setNavbar(false);
+        }
+    };
+
+    window.addEventListener("scroll", ChangeBackground);
+
+
+
+
+
+
     // console.log(UserEmailAddress);
 
     useEffect(() => {
@@ -53,21 +72,18 @@ const Navbar = () => {
 
 
     return (
-        <nav className=" bg-black/40  absolute top-0 z-30 w-[100vw] shadow ">
+        <nav className={`${Navbar ? " bg-black" : "bg-black/40"
+    }    top-0 z-30 w-[100vw] fixed shadow`}   >
 
 
 
-            <div className="container   mx-auto">
+            <div className=" container mx-auto">
                 <div className="flex  py-4 justify-between  items-center">
                     <div className="flex px-3 items-center justify-between">
                         <Link to="/">
                             <div className='text-red-600  rounded-3xl font-bold  text-3xl'>  BlocImmo </div>
-
                         </Link>
                     </div>
-
-
-
 
 
                     <div className="lg:flex text-xl max-lg:hidden lg:items-center">
@@ -136,7 +152,18 @@ const Navbar = () => {
                     {OpenNav &&
                         <div className=' bg-white opacity-100 px-4 absolute top-[70px] z-30 w-[100vw] h-[100vh] flex flex-col gap-4 py-7'>
                             {/* Your content goes here */}
-                            <div className='text-xl hover:text-red-700 text-gray-600'>Marketplace</div>
+
+
+
+                            <Link to="/PropertiesList">
+                                <div className='text-xl hover:text-red-700 text-gray-600'>Marketplace</div>
+                            </Link>
+
+                            <SignedIn>
+                                <Link to="/purchased properties history" className="text-xl hover:text-red-700 text-gray-600 ">Transaction History</Link>
+                            </SignedIn>
+
+
                             {/* <div className='text-xl hover:text-red-700 text-gray-600'>The Exchange</div> */}
                             <div className='text-xl hover:text-red-700 text-gray-600'>About Us</div>
                             <div className='text-xl hover:text-red-700 text-gray-600'>Learn</div>
@@ -151,7 +178,6 @@ const Navbar = () => {
                                 <div className='text-xl hover:text-red-700 text-gray-600'>
                                     Profile
                                 </div>
-
                             </Link>
 
 
@@ -164,9 +190,7 @@ const Navbar = () => {
 
                             <SignedIn>
                                 <div className='text-xl hover:text-red-700 text-gray-600'>
-
                                     <SignOutButton aftersignouturl="/" />
-
                                 </div>
                             </SignedIn>
 

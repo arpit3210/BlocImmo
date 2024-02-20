@@ -33,6 +33,7 @@ const customStyles = {
     right: 'auto',
     bottom: 'auto',
     marginRight: '-50%',
+    background: 'black',
     transform: 'translate(-50%, -50%)',
   },
 };
@@ -257,7 +258,7 @@ const PropertyDetails = () => {
 
   return (
 
-    <>
+    <div className='bg-gradient-to-r text-gray-200 from-gray-800 via-gray-900 to-black'>
 
 
 
@@ -271,18 +272,23 @@ const PropertyDetails = () => {
       <SignedIn>
 
 
+
+
+
+
         <div>
           {/* <button onClick={openModal}>Open Modal</button> */}
           <Modal
             isOpen={modalIsOpen}
             onAfterOpen={afterOpenModal}
             // onRequestClose={closeModal}
+       
             style={{ customStyles }}
 
             contentLabel="Example Modal"
           >
 
-            <div className='flex flex-col justify-center h-full items-center'>
+            <div className='flex flex-col justify-center bg-gradient-to-r from-gray-800 via-gray-900 to-black  h-full items-center'>
 
 
 
@@ -303,16 +309,16 @@ const PropertyDetails = () => {
               {/* Success */}
               {Success &&
 
-                <div className='flex flex-col justify-center items-center '>
+                <div className=' rounded-2xl flex bg-gradient-to-r from-gray-800 via-gray-900 to-black flex-col justify-center items-center '>
                   <div className='flex flex-row justify-between place-items-end '>
                     <div />
                     {/* <button className='py-3 px-6 font-semibold  bg-blue-400 hover:bg-blue-500 text-white text-xl rounded-2xl ' onClick={closeModal}>Close</button> */}
                   </div>
-                  <div className='flex flex-col bg-white max-md:w-[90vw] w-[50vw] h-[50vh] justify-center items-center'>
+                  <div className='flex flex-col bg-gradient-to-r from-gray-800 via-gray-900 to-black max-md:w-[90vw] w-[50vw] h-[50vh] justify-center items-center'>
                     <h2 ref={(_subtitle) => (subtitle = _subtitle)}></h2>
                     {/* <Loader></Loader> */}
                     <div>
-                      <h1 className='text-green-500  text-2xl font-bold  '>Your Transaction Successfully Completed</h1>
+                      <h1 className='text-green-500 max-md:text-base text-2xl font-bold  '>Your Transaction Successfully Completed</h1>
                     </div>
                     <GrStatusGood className='text-7xl text-green-500 my-4' />
                   </div>
@@ -323,7 +329,7 @@ const PropertyDetails = () => {
 
 
 
-                  <button onClick={closeModal} className='py-3 px-6 font-semibold my-5 hover:bg-green-600 bg-green-500 mx-4 text-white text-xl rounded-2xl'>Okay</button>
+                  <button onClick={closeModal} className='py-2 px-6 font-semibold my-5 hover:bg-green-700 bg-green-600 mx-4 text-gray-200 text-xl rounded-2xl'>Okay</button>
                 </div>
               }
 
@@ -331,20 +337,20 @@ const PropertyDetails = () => {
 
               {Errors ? (
 
-                <div className='flex flex-col justify-center items-center '>
+                <div className='flex  flex-col justify-center items-center rounded-3xl bg-gradient-to-r from-gray-800 via-gray-900 to-black '>
                   <div className='flex flex-row justify-between place-items-end '>
                     <div />
                     {/* <button className='py-3 px-6 font-semibold  bg-blue-400 hover:bg-blue-500 text-white text-xl rounded-2xl ' onClick={closeModal}>Close</button> */}
                   </div>
-                  <div className='flex flex-col bg-white max-md:w-[90vw] w-[50vw] h-[50vh] justify-center items-center'>
+                  <div className='flex flex-col bg-gradient-to-r from-gray-800 via-gray-900 to-black rounded-3xl max-md:w-[90vw] w-[50vw] h-[50vh] justify-center items-center'>
                     <h2 ref={(_subtitle) => (subtitle = _subtitle)}></h2>
                     {/* <Loader></Loader> */}
                     <div>
-                      <h1 className='text-red-500  text-2xl font-bold  '>Your Transaction Failed</h1>
+                      <h1 className='text-red-500 max-md:text-base text-2xl font-bold  '>Your Transaction Failed</h1>
                     </div>
                     <GrStatusGood className='text-7xl text-red-500 my-4' />
                   </div>
-                  <button onClick={closeModal} className='py-3 px-6 font-semibold hover:bg-red-600 bg-red-500 text-white text-xl rounded-2xl'>Try Again</button>
+                  <button onClick={closeModal} className='py-2 px-6 font-semibold hover:bg-red-700 bg-red-600 text-gray-200 text-xl rounded-2xl'>Try Again</button>
                 </div>
 
               ) : (
@@ -355,15 +361,6 @@ const PropertyDetails = () => {
 
 
               }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -384,15 +381,16 @@ const PropertyDetails = () => {
 
         <div  >
 
-          <div className='pb-20'><Navbar></Navbar></div>
+          <div className='pb-20 fixed '><Navbar></Navbar>   </div>  
+           <div className=' py-10   '>  </div>
 
-          <div className='flex justify-between items-center mx-6'>
+          <div className='flex justify-between py-16 items-center mx-6'>
 
             <h2 className="text-2xl font-bold mb-4">Property Details</h2>
             <ConnectWalletButton></ConnectWalletButton>
 
           </div>
-          <div className="flex flex-col  md:flex-row  bg-gray-100 p-8 shadow-lg rounded-lg">
+          <div className="flex flex-col  md:flex-row   p-8 shadow-lg rounded-lg   text-white   bg-gradient-to-br from-gray-700 via-gray-900 to-gray-700  ">
             <div className="md:w-1/2 mb-4 md:mb-0">
               <img
                 src={propertyImg}
@@ -426,11 +424,11 @@ const PropertyDetails = () => {
               </div>
             </div>
 
-            <div className="md:w-1/2  text-gray-600 md:ml-4">
+            <div className="md:w-1/2  text-white md:ml-4">
               <div className="mb-4">
-                <p className="text-lg text-gray-600 font-bold">{property.type}</p>
-                <p className="text-gray-600">{property.country}</p>
-                <p className="text-gray-600">{property.source}</p>
+                <p className="text-lg text-white font-bold">{property.type}</p>
+                <p className="text-white">{property.country}</p>
+                <p className="text-white">{property.source}</p>
               </div>
 
               <address className="mb-4">
@@ -509,22 +507,26 @@ const PropertyDetails = () => {
 
 
               <div className="mb-4">
-                <p className="text-lg font-bold">Buy Tokens</p>
-                <label htmlFor="numTokens" className="block mb-2">
-                  Number of Tokens:
-                </label>
-                <input
-                  type="number"
-                  id="numTokens"
-                  name="numTokens"
-                  value={numTokens}
-                  onChange={handleTokenChange}
-                  className="border p-2 mb-2"
-                />
-                <p>Total Price: ${calculateTotalPrice().toFixed(2)}</p>
-                <button onClick={BuyTokenOfProperty} className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">
-                  Buy Tokens
-                </button>
+              <div class="space-y-4">
+  <p class="text-xl font-bold">Buy Tokens</p>
+  <label for="numTokens" class="block mb-2">Number of Tokens:</label>
+  <input
+    type="number"
+    id="numTokens"
+    name="numTokens"
+    value={numTokens}
+    onChange={handleTokenChange}
+    class="border p-2 text-black font-bold mb-2"
+  />
+  <p class="text-lg">Total Price: ${calculateTotalPrice().toFixed(2)}</p>
+</div>
+
+
+<button onClick={BuyTokenOfProperty} class="bg-gradient-to-r from-green-400 to-blue-500 text-white py-2 px-4 rounded-md hover:from-green-500 hover:to-blue-600">
+    Buy Tokens
+</button>
+
+
 
                 {/* <button onClick={handleAddToFirebase} className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">
                   Add To Firebase
@@ -542,7 +544,7 @@ const PropertyDetails = () => {
 
       </SignedIn>
 
-    </>
+    </div>
 
 
 
