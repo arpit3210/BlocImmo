@@ -18,6 +18,7 @@ import { getFirestore, collection, addDoc } from "firebase/firestore";
 // import ConnectWallet from '../LandingPage/ConnectWallet';
 import { v4 as uuidv4 } from 'uuid';
 import { toast } from 'react-toastify';
+import ConnectWalletButton from '../LandingPage/ConnectWalletButton';
 
 
 
@@ -270,12 +271,6 @@ const PropertyDetails = () => {
       <SignedIn>
 
 
-
-
-
-
-
-
         <div>
           {/* <button onClick={openModal}>Open Modal</button> */}
           <Modal
@@ -394,7 +389,7 @@ const PropertyDetails = () => {
           <div className='flex justify-between items-center mx-6'>
 
             <h2 className="text-2xl font-bold mb-4">Property Details</h2>
-            {/* <ConnectWallet></ConnectWallet> */}
+            <ConnectWalletButton></ConnectWalletButton>
 
           </div>
           <div className="flex flex-col  md:flex-row  bg-gray-100 p-8 shadow-lg rounded-lg">
