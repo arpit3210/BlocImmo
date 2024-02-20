@@ -5,23 +5,23 @@ import Footer from '../LandingPage/Footer'
 const Contact = () => {
   return (
 
-    <>
+    <div className='bg-gradient-to-r text-white from-gray-800 via-gray-900 to-black'>
     
     <Navbar></Navbar>
 
-<div className='bg-white py-10'>
+<div className=' py-10'>
 
 </div>
 
 
-    <section className="bg-white ">
+    <section className="bg-gradient-to-r text-white from-gray-800 via-gray-900 to-black ">
     <div className="container px-6 py-12 mx-auto">
         <div>
             <p className="font-medium text-red-500 ">Contact us</p>
 
-            <h1 className="mt-2 text-2xl font-semibold text-gray-800 md:text-3xl ">Get in touch</h1>
+            <h1 className="mt-2 text-2xl font-semibold text-gray-200 md:text-3xl ">Get in touch</h1>
 
-            <p className="mt-3 text-gray-500 ">Our friendly team would love to hear from you.</p>
+            <p className="mt-3 text-gray-300 ">Our friendly team would love to hear from you.</p>
         </div>
 
         <div className="grid grid-cols-1 gap-12 mt-10 lg:grid-cols-3">
@@ -33,8 +33,8 @@ const Contact = () => {
                         </svg>
                     </span>
 
-                    <h2 className="mt-4 text-base font-medium text-gray-800 ">Email</h2>
-                    <p className="mt-2 text-sm text-gray-500 ">Our friendly team is here to help.</p>
+                    <h2 className="mt-4 text-base font-medium text-gray-200 ">Email</h2>
+                    <p className="mt-2 text-sm text-gray-300 ">Our friendly team is here to help.</p>
                     <p className="mt-2 text-sm text-red-500 ">web3arpit@gmail.com</p>
                 </div>
 
@@ -46,9 +46,9 @@ const Contact = () => {
                         </svg>
                     </span>
                     
-                    <h2 className="mt-4 text-base font-medium text-gray-800 ">Office</h2>
-                    <p className="mt-2 text-sm text-gray-500 ">Come say hello at our office HQ.</p>
-                    <p className="mt-2 text-sm text-red-500 ">Nahi Btaunga 000 no hai</p>
+                    <h2 className="mt-4 text-base font-medium text-gray-200 ">Remote Developer</h2>
+                    <p className="mt-2 text-sm text-gray-300 "></p>
+                    <p className="mt-2 text-sm text-red-500 "> I'm remote Blockchain Developer </p>
                 </div>
 
                 <div>
@@ -58,23 +58,25 @@ const Contact = () => {
                         </svg>
                     </span>
                     
-                    <h2 className="mt-4 text-base font-medium text-gray-800 ">Phone</h2>
-                    <p className="mt-2 text-sm text-gray-500 ">Mon-Fri from 8am to 5pm.</p>
-                    <p className="mt-2 text-sm text-red-500 ">+1 9876543212</p>
+                    <h2 className="mt-4 text-base font-medium text-gray-200 ">Whatsapp No</h2>
+                    <p className="mt-2 text-sm text-gray-300 ">Mon-Sun from 8am to 5pm.</p>
+                    <p className="mt-2 text-sm text-red-500 ">+91 8449879510</p>
                 </div>
             </div>
 
             <div className="overflow-hidden rounded-lg lg:col-span-2 h-96 lg:h-auto">
-                <iframe width="100%" height="100%" frameborder="0" title="map" marginheight="0" marginwidth="0" scrolling="no" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=%C4%B0zmir+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"></iframe>
+                <iframe width="100%" height="100%" frameborder="0" title="map" marginheight="0" style={{border:0}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"  marginwidth="0" scrolling="no" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15281526.430003088!2d72.10823189442996!3d20.75722089895768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sin!4v1708434236369!5m2!1sen!2sin"></iframe>
             </div>
         </div>
     </div>
 </section>
 
 
+
+
     <Footer></Footer>
     
-    </>
+    </div>
 
     
   )

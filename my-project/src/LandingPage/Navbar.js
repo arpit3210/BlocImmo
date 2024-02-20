@@ -73,9 +73,7 @@ const Navbar = () => {
 
     return (
         <nav className={`${Navbar ? " bg-black" : "bg-black/40"
-    }    top-0 z-30 w-[100vw] fixed shadow`}   >
-
-
+            }    top-0 z-30 w-[100vw] fixed shadow`}   >
 
             <div className=" container mx-auto">
                 <div className="flex  py-4 justify-between  items-center">
@@ -85,11 +83,21 @@ const Navbar = () => {
                         </Link>
                     </div>
 
-
                     <div className="lg:flex text-xl max-lg:hidden lg:items-center">
-                        <a href="/" className=" text-white hover:underline hover:underline-offset-4 hover:text-red-600 transition-colors duration-300 transform lg:mt-0 lg:mx-4 ">Marketplace</a>
+
+                        <Link to="/propertiesList">
+                            <div className=" text-white hover:underline hover:underline-offset-4 hover:text-red-600 transition-colors duration-300 transform lg:mt-0 lg:mx-4 ">Marketplace</div>
+                        </Link>
+
+
+
                         {/* <a href="/" className=" text-white hover:underline hover:underline-offset-4 hover:text-red-600 transition-colors duration-300 transform lg:mt-0 lg:mx-4 ">The Exchange</a> */}
-                        <a href="/" className=" text-white hover:underline hover:underline-offset-4 hover:text-red-600 transition-colors duration-300 transform lg:mt-0 lg:mx-4 ">About Us</a>
+
+                        <Link to="/team">
+                            <div className=" text-white hover:underline hover:underline-offset-4 hover:text-red-600 transition-colors duration-300 transform lg:mt-0 lg:mx-4 ">About Us</div>
+                        </Link>
+
+
                         <a href="/" className=" text-white hover:underline hover:underline-offset-4 hover:text-red-600 transition-colors duration-300 transform lg:mt-0 lg:mx-4 ">Learn</a>
                         <Link to="/contact" className=" text-white hover:underline hover:underline-offset-4 hover:text-red-600 transition-colors duration-300 transform lg:mt-0 lg:mx-4 ">Contact Us</Link>
 

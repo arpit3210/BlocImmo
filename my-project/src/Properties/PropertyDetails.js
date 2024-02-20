@@ -399,7 +399,7 @@ const PropertyDetails = () => {
               />
 
 
-              <div className='flex flex-wrap-reverse justify-start gap-4 items-center p-3'>
+              <div className='flex flex-wrap-reverse  justify-start gap-4 items-center p-3'>
                 {[
                   PropertyImages.PropertyImage1,
                   PropertyImages.PropertyImage2,
@@ -410,13 +410,13 @@ const PropertyDetails = () => {
                   <div
                     key={index}
                     onClick={() => handlechangeImage(imageSrc)}
-                    className='lg:w-20 cursor-pointer w-14 lg:h-20 h-14'
+                    className='lg:w-20 cursor-pointer w-14 lg:h-20 h-14  '
                     style={{ flexShrink: 0 }}
                   >
                     <img
                       src={imageSrc}
                       alt={`PropertyImage${index + 1}`}
-                      className={`w-full h-full object-cover rounded-lg transition-opacity duration-300 ${selectedImage === imageSrc ? 'opacity-100' : 'opacity-50'
+                      className={`w-full h-full  object-cover rounded-lg transition-opacity duration-300 ${selectedImage === imageSrc ? 'opacity-100   ' : 'opacity-40 '
                         }`}
                     />
                   </div>
