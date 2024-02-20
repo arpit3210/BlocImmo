@@ -253,20 +253,32 @@ const PropertyDetails = () => {
 
 
   const AccordionSection = ({ title, content }) => {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpens, setIsOpens] = useState(false);
 
     const handleToggle = () => {
-      setIsOpen(!isOpen);
+      if(isOpens===true){
+        setIsOpens(false);
+        console.log("call1");
+      }
+      else{
+        setIsOpens(true);
+        console.log("call2");
+      }
+
+
+
     };
     return (
       <div className="mb-4">
         <p className="text-lg font-bold cursor-pointer" onClick={handleToggle}>
           {title}
         </p>
-        {isOpen && <div>{content}</div>}
+        {/* {isOpens && <div>{content}</div>} */}
+        { <div>{content}</div>}
       </div>
     );
   };
+
 
   return (
 
@@ -519,22 +531,22 @@ const PropertyDetails = () => {
 
 
               <div className="mb-4">
-              <div class="space-y-4">
-  <p class="text-xl font-bold">Buy Tokens</p>
-  <label for="numTokens" class="block mb-2">Number of Tokens:</label>
+              <div className="space-y-4">
+  <p className="text-xl font-bold">Buy Tokens</p>
+  <label htmlFor="numTokens" className="block mb-2">Number of Tokens:</label>
   <input
     type="number"
     id="numTokens"
     name="numTokens"
     value={numTokens}
     onChange={handleTokenChange}
-    class="border p-2 text-black font-bold mb-2"
+    className="border p-2 text-black font-bold mb-2"
   />
-  <p class="text-lg">Total Price: ${calculateTotalPrice().toFixed(2)}</p>
+  <p className="text-lg">Total Price: ${calculateTotalPrice().toFixed(2)}</p>
 </div>
 
 
-<button onClick={BuyTokenOfProperty} class="bg-gradient-to-r from-green-400 to-blue-500 text-white py-2 px-4 rounded-md hover:from-green-500 hover:to-blue-600">
+<button onClick={BuyTokenOfProperty} className="bg-gradient-to-r from-green-400 to-blue-500 text-white py-2 px-4 rounded-md hover:from-green-500 hover:to-blue-600">
     Buy Tokens
 </button>
 
