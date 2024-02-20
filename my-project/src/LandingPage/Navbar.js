@@ -9,8 +9,10 @@ import { useProperty } from '../Contexts/PropertyContext';
 
 
 const Navbar = () => {
+
   // eslint-disable-next-line
     const { isSignedIn, user } = useUser();
+    
       // eslint-disable-next-line
     const senderUserId = user ? user.id : null;
     // console.log(senderUserId);
