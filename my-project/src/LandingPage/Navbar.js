@@ -4,13 +4,14 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { Link } from 'react-router-dom';
 import { SignInButton, SignedOut, SignedIn, useUser, UserButton, SignOutButton, SignUpButton } from '@clerk/clerk-react';
 import { useProperty } from '../Contexts/PropertyContext';
-import { MetaIcon } from '../Assets/PartnersLogos';
-import ConnectWalletButton from './ConnectWalletButton';
+// import { MetaIcon } from '../Assets/PartnersLogos';
+// import ConnectWalletButton from './ConnectWalletButton';
 
 
 const Navbar = () => {
-
+  // eslint-disable-next-line
     const { isSignedIn, user } = useUser();
+      // eslint-disable-next-line
     const senderUserId = user ? user.id : null;
     // console.log(senderUserId);
 
@@ -18,8 +19,10 @@ const Navbar = () => {
 
     const [OpenNav, setOpenNav] = useState(false)
 
+      // eslint-disable-next-line
     const { account, initWeb3 } = useProperty();
 
+      // eslint-disable-next-line
     const UserEmailAddress = user?.primaryEmailAddress.emailAddress;
 
 
@@ -50,8 +53,11 @@ const Navbar = () => {
         }
 
         // const receiverEmail = user.primaryEmailAddress.emailAddress;
+          // eslint-disable-next-line
         const UserEmailAddress = user?.primaryEmailAddress.emailAddress;
         // console.log("User Email Address:", UserEmailAddress);
+
+          // eslint-disable-next-line
     }, []);
 
     //   console.log(formData);

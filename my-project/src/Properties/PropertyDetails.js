@@ -1,13 +1,13 @@
 // PropertyDetails.js
 
-import React, { useState, useEffect, useRef } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import {  useParams } from 'react-router-dom';
 import propertiesData from '../PropertiesFiles/Properties.json';
 import Navbar from '../LandingPage/Navbar';
 import Footer from '../LandingPage/Footer';
 import { RedirectToSignIn, SignedIn, SignedOut, useUser } from '@clerk/clerk-react';
 import { useProperty } from '../Contexts/PropertyContext';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import Loaders from '../Components/Loaders';
 
@@ -51,6 +51,7 @@ const PropertyDetails = () => {
   const { propertyId } = useParams();
   const [currentTime, setCurrentTime] = useState(new Date());
 
+  // eslint-disable-next-line
   const { isSignedIn, user } = useUser();
   //   const senderUserId = user ? user.id : null;
   // console.log("this is sender user id", senderUserId);
@@ -89,6 +90,8 @@ const PropertyDetails = () => {
   const UserFirstName = user?.firstName;
   const UserLastName = user?.lastName;
   const UserFullName = user?.fullName;
+
+  // eslint-disable-next-line
   const UserID = user?.primaryEmailAddress.id;
 
   // console.log(UserEmailAddress);
@@ -102,6 +105,8 @@ const PropertyDetails = () => {
     // const receiverEmail = user.primaryEmailAddress.emailAddress;
     const UserEmailAddress = user?.primaryEmailAddress.emailAddress;
     console.log("User Email Address:", UserEmailAddress);
+
+    // eslint-disable-next-line
   }, []);
 
 
@@ -116,11 +121,12 @@ const PropertyDetails = () => {
   }, []);
 
 
-
+// eslint-disable-next-line
   const { Loader, Success, Errors, setLoader, setSuccess, setErrors, account, initWeb3, handleBuyToken, numTokens, setNumTokens, AddDataToFirebase } = useProperty();
 
   const property = propertiesData.properties.find((prop) => prop.id === propertyId);
 
+  // eslint-disable-next-line
   const { highlights, financials, id, details, blockchain, offering, PropertyImages, type, address, country, source, neighborhood, constructionYear, bedroomBath, rentalType, isRented, rentSubsidy } = property;
 
   // console.log(id);
@@ -140,6 +146,7 @@ const PropertyDetails = () => {
   const NumberOfToken = numTokens;
   // console.log(highlights);
 
+
   const PropertyData = {
     Unique_Identifier_Property: id,
     PropertyType: type,
@@ -148,8 +155,13 @@ const PropertyDetails = () => {
     PropertySource: source,
     TimeOfTransaction: currentTime,
     YearOfConstruction: constructionYear,
+      // eslint-disable-next-line
     PropertyType: property.type,
+
+      // eslint-disable-next-line
     PropertyCountryLocation: property.country,
+
+      // eslint-disable-next-line
     PropertySource: property.source,
     Number_of_Token: NumberOfToken,
     Email: UserEmailAddress,
@@ -294,7 +306,7 @@ const PropertyDetails = () => {
 
               {/* Loader Modal  */}
 
-              <h2 ref={(_subtitle) => (subtitle = _subtitle)}></h2>
+              <h2 ref={(_subtitle) => (subtitle = _subtitle)}>.</h2>
 
 
               {/* Loader */}
@@ -315,7 +327,7 @@ const PropertyDetails = () => {
                     {/* <button className='py-3 px-6 font-semibold  bg-blue-400 hover:bg-blue-500 text-white text-xl rounded-2xl ' onClick={closeModal}>Close</button> */}
                   </div>
                   <div className='flex flex-col bg-gradient-to-r from-gray-800 via-gray-900 to-black max-md:w-[90vw] w-[50vw] h-[50vh] justify-center items-center'>
-                    <h2 ref={(_subtitle) => (subtitle = _subtitle)}></h2>
+                    <h2 ref={(_subtitle) => (subtitle = _subtitle)}>.</h2>
                     {/* <Loader></Loader> */}
                     <div>
                       <h1 className='text-green-500 max-md:text-base text-2xl font-bold  '>Your Transaction Successfully Completed</h1>
@@ -343,7 +355,7 @@ const PropertyDetails = () => {
                     {/* <button className='py-3 px-6 font-semibold  bg-blue-400 hover:bg-blue-500 text-white text-xl rounded-2xl ' onClick={closeModal}>Close</button> */}
                   </div>
                   <div className='flex flex-col bg-gradient-to-r from-gray-800 via-gray-900 to-black rounded-3xl max-md:w-[90vw] w-[50vw] h-[50vh] justify-center items-center'>
-                    <h2 ref={(_subtitle) => (subtitle = _subtitle)}></h2>
+                    <h2 ref={(_subtitle) => (subtitle = _subtitle)}>.</h2>
                     {/* <Loader></Loader> */}
                     <div>
                       <h1 className='text-red-500 max-md:text-base text-2xl font-bold  '>Your Transaction Failed</h1>
