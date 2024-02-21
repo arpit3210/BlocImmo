@@ -1,7 +1,7 @@
 // PropertyDetails.js
 
 import React, { useState, useEffect } from 'react';
-import { Navigate, useParams } from 'react-router-dom';
+import {  useParams } from 'react-router-dom';
 import propertiesData from '../PropertiesFiles/Properties.json';
 import Navbar from '../LandingPage/Navbar';
 import Footer from '../LandingPage/Footer';
@@ -19,8 +19,6 @@ import { getFirestore, collection, addDoc, query, getDocs, where } from "firebas
 import { v4 as uuidv4 } from 'uuid';
 import { toast } from 'react-toastify';
 import ConnectWalletButton from '../LandingPage/ConnectWalletButton';
-
-
 
 
 const customStyles = {
@@ -57,8 +55,11 @@ const PropertyDetails = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
 
   const { user } = useUser();
+
+  // eslint-disable-next-line
   const [kycCompleted, setKycCompleted] = useState(false);
 
+  // eslint-disable-next-line
   const [UserExist, setUserExist] = useState(false)
 
   useEffect(() => {
@@ -334,17 +335,10 @@ const PropertyDetails = () => {
     <div className='bg-gradient-to-r text-gray-200 from-gray-800 via-gray-900 to-black'>
 
 
-
       <SignedOut>
-
         <RedirectToSignIn />
-
       </SignedOut>
-
-
-      <SignedIn>
-
-
+       <SignedIn>
 
 
         {/* {UserExist ? <> {kycCompleted ? (<>

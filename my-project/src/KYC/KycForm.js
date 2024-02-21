@@ -153,8 +153,8 @@ const initialFormData= {
 //   };
 
   return (
-    <div className="w-full max-w-md mx-auto p-8 bg-white rounded">
-      <h2 className="text-2xl mb-4 text-center">Real Estate Investment KYC Form</h2>
+    <div className="w-full max-w-md mx-auto p-8 text-white rounded">
+      <h2 className="text-2xl mb-4 font-bold text-center">Real Estate Investment KYC Form</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label htmlFor="fullName" className="flex items-center"><FaUser className="mr-2" /> Full Name</label>
@@ -165,7 +165,7 @@ const initialFormData= {
             value={formData.fullName}
             onChange={handleChange}
             required
-            className="w-full px-4 py-2 border rounded"
+            className="w-full px-4 py-2 hover:bg-slate-300 text-black border rounded"
           />
         </div>
         <div className="mb-4">
@@ -177,7 +177,7 @@ const initialFormData= {
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full px-4 py-2 border rounded"
+            className="w-full px-4 hover:bg-slate-300 text-black py-2 border rounded"
           />
         </div>
         <div className="mb-4">
@@ -188,7 +188,7 @@ const initialFormData= {
             value={formData.address}
             onChange={handleChange}
             required
-            className="w-full px-4 py-2 border rounded"
+            className="w-full px-4 hover:bg-slate-300 text-black py-2 border rounded"
           ></textarea>
         </div>
         <div className="mb-4">
@@ -200,7 +200,7 @@ const initialFormData= {
             value={formData.phone}
             onChange={handleChange}
             required
-            className="w-full px-4 py-2 border rounded"
+            className="w-full px-4 py-2 hover:bg-slate-300 text-black border rounded"
           />
         </div>
         <div className="mb-4">
@@ -211,7 +211,7 @@ const initialFormData= {
             value={formData.documentType}
             onChange={handleChange}
             required
-            className="w-full px-4 py-2 border rounded"
+            className="w-full px-4 text-black hover:bg-slate-300 py-2 border rounded"
           >
             <option value="">Select Document Type</option>
             <option value="passport">Passport</option>
@@ -229,16 +229,16 @@ const initialFormData= {
             accept="image/*" // Only accept image files
             onChange={handleChange}
             required
-            className="w-full px-4 py-2 border rounded"
+            className="w-full text-black px-4 hover:bg-slate-300 py-2  border rounded"
           />
         </div>
         {formData.uploadedImage && (
           <div className="mb-4">
             <label className="flex items-center">Uploaded Image</label>
-            <img src={URL.createObjectURL(formData.uploadedImage)} alt="Uploaded" className="w-full" />
+            <img src={URL.createObjectURL(formData.uploadedImage)} alt="Uploaded" className="w-full  rounded-2xl" />
           </div>
         )}
-        <button type="submit" className="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded">
+        <button type="submit" className="w-full bg-gradient-to-r from-green-400 to-blue-500  py-2 px-4 rounded-md hover:from-green-500 hover:to-blue-600 text-white font-bold ">
           {isLoading ? <Loaders /> : 'Submit'}
         </button>
       </form>

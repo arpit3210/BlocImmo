@@ -1,15 +1,16 @@
 
 import React, { useEffect, useState } from 'react';
 import KYCForm from './KycForm'; // Assuming the KYCForm component is in the same directory
-import Verification from '../Assets/Images/undraw_certification_re_ifll.svg'; // Import the SVG image
+
 import Navbar from '../LandingPage/Navbar';
 import Footer from '../LandingPage/Footer';
 import KYCWaitingScreen from './KYCWaitingScreen';
-import { Navigate } from 'react-router-dom';
+
 
 import { getFirestore, collection, query, getDocs, where } from "firebase/firestore";
 import { useUser } from '@clerk/clerk-react';
-import moment from 'moment'; // Import moment.js for date formatting
+
+import { TokenizationPIC } from '../Assets/Images';
 
 
 
@@ -63,16 +64,16 @@ const KYCPage = () => {
 
 
     return (
-        <div className='bg-black'>
+        <div className=' bg-gradient-to-r from-gray-800 via-gray-900 to-black '>
             <Navbar></Navbar>
 
-            <div className='py-10'></div>
+            {/* <div className='py-10'></div> */}
 
-            <div>
+            <div className=''>
 
-                <div className="flex flex-col md:flex-row">
+                <div className="flex flex-col  md:flex-row">
                     {/* Left side with KYC form */}
-                    <div className="md:w-1/2 p-8 ">
+                    <div className="md:w-1/2 p-8 my-14 ">
 
 
 
@@ -102,11 +103,16 @@ const KYCPage = () => {
                     </div>
 
                     {/* Right side with SVG illustration */}
-                    <div className="md:w-1/2 p-8 bg-white flex max-md:hidden justify-center items-center">
-                        <div className="max-w-lg   ">
-                            <img src={Verification} alt="Verification" className="w-full h-auto" />
-                        </div>
-                    </div>
+                    <div className="md:w-1/2 flex max-md:hidden justify-center items-center">
+    {/* <div className="max-w-md"> */}
+        <img 
+            src={TokenizationPIC} 
+            alt="Verification" 
+            className="object-none w-full h-full" 
+        />
+    {/* </div> */}
+</div>
+
                 </div>
 
 
