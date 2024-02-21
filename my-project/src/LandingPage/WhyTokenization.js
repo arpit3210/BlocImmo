@@ -1,5 +1,6 @@
 
 // import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 import { TokenizationPIC } from "../Assets/Images";
 
 
@@ -49,9 +50,15 @@ return (
             <p className="mb-9 text-xl text-gray-400">
                 Whether you are a high net worth, institutional, or retail investor, RedSwan CRE’s crowdfunding-style investment platform makes it easy for you to start investing in minutes.
             </p>
+         
+
+
+            <Link to="/propertiesList" >
             <button className="bg-red-600 my-5 text-white py-3 text-xl px-6 rounded-lg  hover:bg-red-700">
                 Get Started Now
             </button>
+                </Link>
+
         </div>
     </div>
 

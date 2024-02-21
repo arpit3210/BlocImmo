@@ -1,5 +1,6 @@
 import React from 'react'
 import { SelectProperty1 ,SignUP,StartInvesting } from '../Assets/PartnersLogos'
+import { Link } from 'react-router-dom'
 
 
 const EasyProcess = () => {
@@ -74,8 +75,14 @@ const GetStartedButton = () => {
     return (
         <div className='py-8'>
 
+
+
+
             <div className='flex justify-center items-center'>
-                <button className='hover:bg-red-700 transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300 hover:text-white  border border-red-600 text-red-600 py-4 px-14 text-2xl rounded-xl '> Get Started Now </button>
+            <Link to="/propertiesList" >
+<button className='hover:bg-red-700 transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300 hover:text-white  border border-red-600 text-red-600 py-4 px-14 text-2xl rounded-xl '> Get Started Now </button>
+                </Link>
+
             </div>
 
         </div>
