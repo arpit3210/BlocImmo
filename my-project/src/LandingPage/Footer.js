@@ -1,7 +1,9 @@
 import React from 'react'
 import { toast } from 'react-toastify'
 import { db } from '../firebase'
-import { getFirestore ,  collection, addDoc} from "firebase/firestore"
+
+// eslint-disable-next-line
+import {   collection, addDoc} from "firebase/firestore"
 
 const Footer = () => {
 

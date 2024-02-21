@@ -44,18 +44,11 @@ export const PropertyProvider = ({ children }) => {
     setWeb3(web3Instance);
 
     try {
-      // Request account access using enable() for legacy compatibility
-      await window.ethereum.enable();
-
-      const accounts = await web3Instance.eth.getAccounts();
+      const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
       setAccount(accounts[0]);
-
-
-      // Specify Goerli network ID
-
+      // Use the retrieved accounts for interaction with the Goerli network
     } catch (error) {
-      
-      console.error('Error connecting to Ethereum:', error);
+      console.error('Error requesting accounts:', error);
     }
   };
 
@@ -114,12 +107,9 @@ export const PropertyProvider = ({ children }) => {
   
       try {
         // Request account access using enable() for legacy compatibility
-        await window.ethereum.enable();
-  
-        const accounts = await web3Instance.eth.getAccounts();
+        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         setAccount(accounts[0]);
-  
-  
+        // Use the retrieved accounts for interaction with the Goerli network
         // Specify Goerli network ID
   
       } catch (error) {

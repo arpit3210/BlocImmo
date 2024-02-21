@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../LandingPage/Navbar';
-import { getFirestore, collection, query, where, getDocs } from "firebase/firestore";
+import { getFirestore, collection, query,  getDocs } from "firebase/firestore";
 import { useUser } from '@clerk/clerk-react';
 import moment from 'moment'; // Import moment.js for date formatting
 

@@ -13,17 +13,12 @@ import Loaders from '../Components/Loaders';
 
 import { GrStatusGood } from "react-icons/gr";
 
-import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { getFirestore, collection, addDoc, query, getDocs, where } from "firebase/firestore";
 
 // import ConnectWallet from '../LandingPage/ConnectWallet';
 import { v4 as uuidv4 } from 'uuid';
 import { toast } from 'react-toastify';
 import ConnectWalletButton from '../LandingPage/ConnectWalletButton';
-
-
-
-
-
 
 
 const customStyles = {
@@ -43,16 +38,12 @@ const customStyles = {
 
 
 
-
-
-
-
 const PropertyDetails = () => {
   const { propertyId } = useParams();
   const [currentTime, setCurrentTime] = useState(new Date());
 
   // eslint-disable-next-line
-  const { isSignedIn, user } = useUser();
+
   //   const senderUserId = user ? user.id : null;
   // console.log("this is sender user id", senderUserId);
 
@@ -60,9 +51,68 @@ const PropertyDetails = () => {
 
 
 
-
   let subtitle;
   const [modalIsOpen, setIsOpen] = useState(false);
+
+  const { user } = useUser();
+
+  // eslint-disable-next-line
+  const [kycCompleted, setKycCompleted] = useState(false);
+
+  // eslint-disable-next-line
+  const [UserExist, setUserExist] = useState(false)
+
+  useEffect(() => {
+    const fetchKycCompletedStatus = async () => {
+      if (user) {
+        const db = getFirestore();
+        try {
+          // Construct a query to fetch only the KYC_Completed field
+          const q = query(collection(db, 'UsersKYCList', user.id, 'KYCData'), where('KYC_Completed', '==', true));
+          const querySnapshot = await getDocs(q);
+
+
+          const q_second = query(collection(db, 'UsersKYCList', user.id, 'KYCData'), where('USER_ID', '==', user.id));
+          const querySnapshot_second = await getDocs(q_second);
+
+          if (!querySnapshot_second.empty) {
+            setUserExist(true); // User doesn't exist, so set UserExist to false
+          } else {
+            setUserExist(false); // User exists, so set UserExist to true
+          }
+
+
+          // Check if there are any documents returned
+          if (!querySnapshot.empty) {
+
+            // Here you can set the KYC_Completed field value
+            // Assuming there's only one document, so we access it using querySnapshot.docs[0]
+            const kycData = querySnapshot.docs[0].data();
+            setKycCompleted(kycData.KYC_Completed);
+
+          }
+        } catch (error) {
+
+
+          console.error("Error fetching USER KYC Data", error);
+        }
+      }
+    };
+
+    fetchKycCompletedStatus();
+  }, [user]);
+
+
+
+
+
+
+
+
+
+
+
+
 
   function openModal() {
     setIsOpen(true);
@@ -121,7 +171,7 @@ const PropertyDetails = () => {
   }, []);
 
 
-// eslint-disable-next-line
+  // eslint-disable-next-line
   const { Loader, Success, Errors, setLoader, setSuccess, setErrors, account, initWeb3, handleBuyToken, numTokens, setNumTokens, AddDataToFirebase } = useProperty();
 
   const property = propertiesData.properties.find((prop) => prop.id === propertyId);
@@ -155,13 +205,13 @@ const PropertyDetails = () => {
     PropertySource: source,
     TimeOfTransaction: currentTime,
     YearOfConstruction: constructionYear,
-      // eslint-disable-next-line
+    // eslint-disable-next-line
     PropertyType: property.type,
 
-      // eslint-disable-next-line
+    // eslint-disable-next-line
     PropertyCountryLocation: property.country,
 
-      // eslint-disable-next-line
+    // eslint-disable-next-line
     PropertySource: property.source,
     Number_of_Token: NumberOfToken,
     Email: UserEmailAddress,
@@ -254,37 +304,55 @@ const PropertyDetails = () => {
 
 
   const AccordionSection = ({ title, content }) => {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpens, setIsOpens] = useState(false);
 
     const handleToggle = () => {
-      setIsOpen(!isOpen);
+      if (isOpens === true) {
+        setIsOpens(false);
+        console.log("call1");
+      }
+      else {
+        setIsOpens(true);
+        console.log("call2");
+      }
+
+
+
     };
     return (
       <div className="mb-4">
         <p className="text-lg font-bold cursor-pointer" onClick={handleToggle}>
           {title}
         </p>
-        {isOpen && <div>{content}</div>}
+        {/* {isOpens && <div>{content}</div>} */}
+        {<div>{content}</div>}
       </div>
     );
   };
+
 
   return (
 
     <div className='bg-gradient-to-r text-gray-200 from-gray-800 via-gray-900 to-black'>
 
 
-
       <SignedOut>
-
         <RedirectToSignIn />
-
       </SignedOut>
+       <SignedIn>
 
 
-      <SignedIn>
+        {/* {UserExist ? <> {kycCompleted ? (<>
 
 
+          <Navigate to="/" replace />
+
+        </>) : <KYCWaitingScreen />} </> : (<>
+          <KYCForm />
+        </>)} */}
+
+
+       {/* {kycCompleted ? (<> </>) : <><Navigate to="/KYCPage" replace />  </>} */}
 
 
 
@@ -295,7 +363,7 @@ const PropertyDetails = () => {
             isOpen={modalIsOpen}
             onAfterOpen={afterOpenModal}
             // onRequestClose={closeModal}
-       
+
             style={{ customStyles }}
 
             contentLabel="Example Modal"
@@ -394,8 +462,8 @@ const PropertyDetails = () => {
 
         <div  >
 
-          <div className='pb-20 fixed '><Navbar></Navbar>   </div>  
-           <div className=' py-10   '>  </div>
+          <div className='pb-20 fixed '><Navbar></Navbar>   </div>
+          <div className=' py-10   '>  </div>
 
           <div className='flex justify-between py-16 items-center mx-6'>
 
@@ -520,24 +588,24 @@ const PropertyDetails = () => {
 
 
               <div className="mb-4">
-              <div class="space-y-4">
-  <p class="text-xl font-bold">Buy Tokens</p>
-  <label for="numTokens" class="block mb-2">Number of Tokens:</label>
-  <input
-    type="number"
-    id="numTokens"
-    name="numTokens"
-    value={numTokens}
-    onChange={handleTokenChange}
-    class="border p-2 text-black font-bold mb-2"
-  />
-  <p class="text-lg">Total Price: ${calculateTotalPrice().toFixed(2)}</p>
-</div>
+                <div className="space-y-4">
+                  <p className="text-xl font-bold">Buy Tokens</p>
+                  <label htmlFor="numTokens" className="block mb-2">Number of Tokens:</label>
+                  <input
+                    type="number"
+                    id="numTokens"
+                    name="numTokens"
+                    value={numTokens}
+                    onChange={handleTokenChange}
+                    className="border p-2 text-black font-bold mb-2"
+                  />
+                  <p className="text-lg">Total Price: ${calculateTotalPrice().toFixed(2)}</p>
+                </div>
 
 
-<button onClick={BuyTokenOfProperty} class="bg-gradient-to-r from-green-400 to-blue-500 text-white py-2 px-4 rounded-md hover:from-green-500 hover:to-blue-600">
-    Buy Tokens
-</button>
+                <button onClick={BuyTokenOfProperty} className="bg-gradient-to-r from-green-400 to-blue-500 text-white py-2 px-4 rounded-md hover:from-green-500 hover:to-blue-600">
+                  Buy Tokens
+                </button>
 
 
 
