@@ -50,7 +50,6 @@ export const PropertyProvider = ({ children }) => {
     } catch (error) {
       console.error('Error requesting accounts:', error);
     }
-    
   };
 
 

@@ -17,6 +17,7 @@ import UserProfiles from '../LandingPage/UserProfiles.js';
 import BoughtPropertiesHistory from '../Properties/BoughtPropertiesHistory.js';
 
 
+import KYCPage from '../KYC/KYCPage.js';
 
 
 
@@ -45,7 +46,8 @@ function IndexPage() {
                         <Route path="/propertiesList" element={<PropertiesList />} />
                         <Route path="/property/:propertyId" element={<PropertyDetail />} />
                      
-                  
+                     
+                        <Route path="/KYCPage" element={<KYCPage />} />
                         <Route path="/purchased properties history" element={<BoughtPropertiesHistory />} />
                    </Routes>
                 </BrowserRouter>
