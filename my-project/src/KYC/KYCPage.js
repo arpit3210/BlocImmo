@@ -11,6 +11,7 @@ import { getFirestore, collection, query, getDocs, where } from "firebase/firest
 import { useUser } from '@clerk/clerk-react';
 
 import { TokenizationPIC } from '../Assets/Images';
+import Loaders from '../Components/Loaders';
 
 
 
@@ -19,6 +20,7 @@ const KYCPage = () => {
     const [kycCompleted, setKycCompleted] = useState(false);
 
     const [UserExist, setUserExist] = useState(false)
+    const [loading, setLoading] = useState(true); // State variable for loading status
 
     useEffect(() => {
         const fetchKycCompletedStatus = async () => {
@@ -53,6 +55,8 @@ const KYCPage = () => {
 
 
                     console.error("Error fetching USER KYC Data", error);
+                } finally {
+                    setLoading(false); // Set loading to false after fetching data
                 }
             }
         };
@@ -64,65 +68,76 @@ const KYCPage = () => {
 
 
     return (
-        <div className=' bg-gradient-to-r from-gray-800 via-gray-900 to-black '>
-            <Navbar></Navbar>
 
-            {/* <div className='py-10'></div> */}
-
-            <div className=''>
-
-                <div className="flex flex-col  md:flex-row">
-                    {/* Left side with KYC form */}
-                    <div className="md:w-1/2 p-8 my-14 ">
+        <>
 
 
+            <>
+                {loading ? (
+
+<>
+
+<Navbar></Navbar>
+                  
 
 
-                        {UserExist ? (
-                            <>
-
-                                {kycCompleted ? (
-                           <></>                        
-                           // <Navigate to="/propertiesList" replace />
-                                ) : (
-                                    <KYCWaitingScreen />
-                                )}
-
-                            </>
-                        ) : (
-                            <KYCForm />
-                        )}
+            <div className='flex justify-center items-center bg-gradient-to-r from-gray-800 via-gray-900 to-black h-screen' >
+              <div className='flex justify-center items-center'>
+                <Loaders />
+              </div>
+            </div>
+            {/* <Footer></Footer> */}
+          </> 
+                ) : (
 
 
 
 
-                        {/* <KYCWaitingScreen/> */}
-
-
-
+                    <div className=' bg-gradient-to-r from-gray-800 via-gray-900 to-black '>
+                        <Navbar></Navbar>
+                        {/* <div className='py-10'></div> */}
+                        <div className=''>
+                            <div className="flex flex-col  md:flex-row">
+                                {/* Left side with KYC form */}
+                                <div className="md:w-1/2 p-8 my-14 ">
+                                    <>
+                                        {UserExist ? (
+                                            <>
+                                                {kycCompleted ? (
+                                                    <></>
+                                                    // <Navigate to="/propertiesList" replace />
+                                                ) : (
+                                                    <KYCWaitingScreen />
+                                                )}
+                                            </>
+                                        ) : (
+                                            <KYCForm />
+                                        )}
+                                    </>
+                                    {/* <KYCWaitingScreen/> */}
+                                </div>
+                                {/* Right side with SVG illustration */}
+                                <div className="md:w-1/2 flex max-md:hidden justify-center items-center">
+                                    {/* <div className="max-w-md"> */}
+                                    <img
+                                        src={TokenizationPIC}
+                                        alt="Verification"
+                                        className="object-none w-full h-full"
+                                    />
+                                    {/* </div> */}
+                                </div>
+                            </div>
+                        </div>
+                        <Footer></Footer>
                     </div>
 
-                    {/* Right side with SVG illustration */}
-                    <div className="md:w-1/2 flex max-md:hidden justify-center items-center">
-    {/* <div className="max-w-md"> */}
-        <img 
-            src={TokenizationPIC} 
-            alt="Verification" 
-            className="object-none w-full h-full" 
-        />
-    {/* </div> */}
-</div>
-
-                </div>
-
-
-            </div>
+                )}
+            </>
 
 
 
-            <Footer></Footer>
+        </>
 
-        </div>
 
     );
 };

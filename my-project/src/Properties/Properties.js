@@ -1,5 +1,5 @@
 // PropertiesList.js
-
+import { SignedIn, SignedOut, RedirectToSignIn } from '@clerk/clerk-react';
 
 
 import React, { useState, useEffect } from 'react';
@@ -8,26 +8,18 @@ import { Link } from 'react-router-dom';
 import propertiesData from '../PropertiesFiles/Properties.json';
 import Navbar from '../LandingPage/Navbar';
 import Footer from '../LandingPage/Footer';
-import { getFirestore, collection,  query, getDocs, where } from "firebase/firestore";
+import { getFirestore, collection, query, getDocs, where } from "firebase/firestore";
 
 import { useUser } from '@clerk/clerk-react';
 import KYCPage from '../KYC/KYCPage';
+import Loaders from '../Components/Loaders';
 
 
 
 const PropertiesList = () => {
-
-
-
-
-
-
-
-
-
   const { user } = useUser();
   const [kycCompleted, setKycCompleted] = useState(false);
-
+  const [loading, setLoading] = useState(true);
   // eslint-disable-next-line
   const [UserExist, setUserExist] = useState(false)
 
@@ -50,7 +42,6 @@ const PropertiesList = () => {
             setUserExist(false); // User exists, so set UserExist to true
           }
 
-
           // Check if there are any documents returned
           if (!querySnapshot.empty) {
 
@@ -58,12 +49,11 @@ const PropertiesList = () => {
             // Assuming there's only one document, so we access it using querySnapshot.docs[0]
             const kycData = querySnapshot.docs[0].data();
             setKycCompleted(kycData.KYC_Completed);
-
           }
         } catch (error) {
-
-
           console.error("Error fetching USER KYC Data", error);
+        } finally {
+          setLoading(false); // Set loading to false after fetching data
         }
       }
     };
@@ -73,68 +63,71 @@ const PropertiesList = () => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   return (
 
     <>
 
-      {kycCompleted ? (
+      <>
+        {loading ? (
 
-        <>
-        
-        <div className='bg-gradient-to-r from-gray-800 via-gray-900 to-black'>
-      <Navbar></Navbar>
+          <>
 
-      <div className='h-52'>
-
-      </div>
-
-      <div className='flex flex-col gap-10 rounded-3xl py-5 px-10'>
-        {propertiesData.properties.map((property) => (
-          <div key={property.id}>
-            <PropertiesCard property={property} />
-
-          </div>
-        ))}
-      </div>
+<Navbar></Navbar>
+                  
 
 
+            <div className='flex justify-center items-center bg-gradient-to-r from-gray-800 via-gray-900 to-black h-screen' >
+              <div className='flex justify-center items-center'>
+                <Loaders />
+              </div>
+            </div>
+            {/* <Footer></Footer> */}
+          </>
+        ) : (
 
-      <Footer></Footer>
-    </div>
-        
-        </>
-      ) : (   <>
-      
-      {/* <Navigate  to="/KYCPage" replace  /> */}
+          <>
+
+            <SignedIn>
+
+              {kycCompleted ? (
+                <>
+                  <div className='bg-gradient-to-r from-gray-800 via-gray-900 to-black'>
+                    <Navbar></Navbar>
+                    <div className='h-52'>
+                    </div>
+                    <div className='flex flex-col gap-10 rounded-3xl py-5 px-10'>
+                      {propertiesData.properties.map((property) => (
+                        <div key={property.id}>
+                          <PropertiesCard property={property} />
+
+                        </div>
+                      ))}
+                    </div>
+                    <Footer></Footer>
+                  </div>
+                </>
+              ) : (<>
+                {/* <Navigate  to="/KYCPage" replace  /> */}
+                <KYCPage></KYCPage>
+              </>
+              )}
 
 
-      <KYCPage></KYCPage>
-      
+            </SignedIn>
+
+
+
+
+
+
+            <SignedOut  >
+
+              <RedirectToSignIn />
+            </SignedOut>
+
+          </>
+        )}
       </>
-      )}
-
-
 
 
 
@@ -209,15 +202,15 @@ const PropertiesCard = ({ property }) => {
           <p className="text-gray-600">{highlights.source}</p>
 
           <address className="mb-4 text-xl font-bold">
-                <p>{property.address}</p>
-              </address>
-         
-              <div className="mb-4">
-                <p className="text-lg text-white font-bold">{property.type}</p>
-                <p className="text-white">{property.country}</p>
-                <p className="text-white">{property.source}</p>
-              </div>
-          
+            <p>{property.address}</p>
+          </address>
+
+          <div className="mb-4">
+            <p className="text-lg text-white font-bold">{property.type}</p>
+            <p className="text-white">{property.country}</p>
+            <p className="text-white">{property.source}</p>
+          </div>
+
         </div>
 
         <address className="mb-4">
@@ -244,7 +237,7 @@ const PropertiesCard = ({ property }) => {
         </div>
 
         <Link to={`/property/${property.id}`} className="bg-gradient-to-r from-green-400 to-blue-500 text-white py-2 px-4 rounded-md hover:from-green-500 hover:to-blue-600">
-         BUY NOW
+          BUY NOW
         </Link>
 
         {/* <Link to={`/property/${property.identifier}`} className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">

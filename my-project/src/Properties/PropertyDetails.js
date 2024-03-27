@@ -1,7 +1,7 @@
 // PropertyDetails.js
 
 import React, { useState, useEffect } from 'react';
-import {  useParams } from 'react-router-dom';
+import {  Link, useParams } from 'react-router-dom';
 import propertiesData from '../PropertiesFiles/Properties.json';
 import Navbar from '../LandingPage/Navbar';
 import Footer from '../LandingPage/Footer';
@@ -408,9 +408,14 @@ const PropertyDetails = () => {
 <button className='py-3 px-6 font-semibold hover:bg-green-600 bg-green-500 my-5 text-white text-xl mx-4 rounded-2xl'>Transaction History ✅ </button>
 </Link> */}
 
-
+<Link onClick={closeModal} to="/purchased properties history" className='py-2 px-6 font-semibold my-5  ring-2 ring-green-500 mx-4 text-gray-200 hover:text-gray-400 text-xl rounded-2xl'>Check Transaction History</Link>
 
                   <button onClick={closeModal} className='py-2 px-6 font-semibold my-5 hover:bg-green-700 bg-green-600 mx-4 text-gray-200 text-xl rounded-2xl'>Okay</button>
+               
+               
+              
+               
+
                 </div>
               }
 
