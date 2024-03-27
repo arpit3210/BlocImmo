@@ -92,6 +92,7 @@ function App() {
 
         <Provider store={store}>
           <IndexPage />
+          <ToastContainer/>
           </Provider>
       </PropertyProvider>
 
