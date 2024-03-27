@@ -66,22 +66,35 @@ const PropertiesList = () => {
   return (
 
     <>
-
       <>
         {loading ? (
-
           <>
 
-<Navbar></Navbar>
-                  
+            <SignedIn>
 
-
-            <div className='flex justify-center items-center bg-gradient-to-r from-gray-800 via-gray-900 to-black h-screen' >
-              <div className='flex justify-center items-center'>
-                <Loaders />
+              <Navbar></Navbar>
+              <div className='flex justify-center items-center bg-gradient-to-r from-gray-800 via-gray-900 to-black h-screen' >
+                <div className='flex justify-center items-center'>
+                  <Loaders />
+                </div>
               </div>
-            </div>
-            {/* <Footer></Footer> */}
+
+
+
+            </SignedIn>
+
+
+            <>
+
+              <SignedOut  >
+
+                <RedirectToSignIn />
+              </SignedOut>
+
+
+            </>
+
+
           </>
         ) : (
 
@@ -111,8 +124,6 @@ const PropertiesList = () => {
                 <KYCPage></KYCPage>
               </>
               )}
-
-
             </SignedIn>
 
 
