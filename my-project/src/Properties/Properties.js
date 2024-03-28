@@ -82,19 +82,11 @@ const PropertiesList = () => {
 
 
             </SignedIn>
-
-
             <>
-
               <SignedOut  >
-
                 <RedirectToSignIn />
               </SignedOut>
-
-
             </>
-
-
           </>
         ) : (
 
